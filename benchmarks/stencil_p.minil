@@ -1,0 +1,35 @@
+// Benchmark 8: stencil_p (Parameter-Bounded)
+// 1D 3-point stencil where inner loop runs up to parameter n.
+int sa[3000];
+int sb[3000];
+
+int apply_stencil(int n) {
+    int i = 1;
+    while (i < n - 1) {
+        sb[i] = (sa[i - 1] + sa[i] + sa[i + 1]) / 3;
+        i = i + 1;
+    }
+    return sb[1];
+}
+
+int main() {
+    int i = 0;
+    while (i < 3000) {
+        sa[i] = (i * 11) % 10007;
+        sb[i] = 0;
+        i = i + 1;
+    }
+
+    int iters = 150;
+    int rep = 0;
+    int checksum = 0;
+
+    while (rep < iters) {
+        int res = apply_stencil(3000);
+        checksum = (checksum + res + sb[1500]) % 1000000007;
+        rep = rep + 1;
+    }
+
+    print(checksum);
+    return 0;
+}

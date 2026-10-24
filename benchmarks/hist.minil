@@ -1,0 +1,37 @@
+// Benchmark 11: hist (Data-Dependent)
+// Histogram binning on 64 bins.
+int hbins[64];
+int hdata[4096];
+
+int main() {
+    int i = 0;
+    while (i < 4096) {
+        hdata[i] = (i * 31 + 17) % 50000;
+        i = i + 1;
+    }
+
+    int iters = 150;
+    int rep = 0;
+    int checksum = 0;
+
+    while (rep < iters) {
+        int b = 0;
+        while (b < 64) {
+            hbins[b] = 0;
+            b = b + 1;
+        }
+
+        i = 0;
+        while (i < 4096) {
+            int bin = hdata[i] % 64;
+            hbins[bin] = hbins[bin] + 1;
+            i = i + 1;
+        }
+
+        checksum = (checksum + hbins[0] * 3 + hbins[31] * 7 + hbins[63] * 11) % 1000000007;
+        rep = rep + 1;
+    }
+
+    print(checksum);
+    return 0;
+}

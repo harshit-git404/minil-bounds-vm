@@ -1,0 +1,45 @@
+// Benchmark 6: bsearch (Statically Provable)
+// Repeated binary search on sorted array of size 4096.
+int table[4096];
+
+int bsearch_query(int target, int n) {
+    int low = 0;
+    int high = n - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        int val = table[mid];
+        if (val == target) {
+            return mid;
+        }
+        if (val < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    int i = 0;
+    while (i < 4096) {
+        table[i] = i * 2;
+        i = i + 1;
+    }
+
+    int queries = 30000;
+    int q = 0;
+    int found_sum = 0;
+
+    while (q < queries) {
+        int target = (q * 17) % 8192;
+        int res = bsearch_query(target, 4096);
+        if (res >= 0) {
+            found_sum = (found_sum + res) % 1000000007;
+        }
+        q = q + 1;
+    }
+
+    print(found_sum);
+    return 0;
+}

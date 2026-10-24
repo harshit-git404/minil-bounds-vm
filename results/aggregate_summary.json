@@ -1,0 +1,26 @@
+{
+  "R": {
+    "geomean_ratio": 1.026803545962155,
+    "geomean_overhead_pct": 2.680354596215495
+  },
+  "F": {
+    "geomean_ratio": 1.0495021722955802,
+    "geomean_overhead_pct": 4.950217229558018
+  },
+  "S": {
+    "geomean_ratio": 1.0214783805087064,
+    "geomean_overhead_pct": 2.147838050870643
+  },
+  "H": {
+    "geomean_ratio": 1.0059240419814512,
+    "geomean_overhead_pct": 0.5924041981451245
+  },
+  "FS": {
+    "geomean_ratio": 1.0252429515387929,
+    "geomean_overhead_pct": 2.5242951538792857
+  },
+  "FH": {
+    "geomean_ratio": 1.0231535513633319,
+    "geomean_overhead_pct": 2.315355136333186
+  }
+}

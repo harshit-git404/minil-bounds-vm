@@ -1,0 +1,33 @@
+// Benchmark 10: gather (Data-Dependent)
+// Gathers array elements through an index permutation array perm[i].
+int gdata[4096];
+int perm[4096];
+
+int main() {
+    int i = 0;
+    while (i < 4096) {
+        gdata[i] = (i * 13 + 7) % 10007;
+        // Pseudo-random permutation within [0, 4095]
+        perm[i] = (i * 127 + 3) % 4096;
+        i = i + 1;
+    }
+
+    int iters = 200;
+    int rep = 0;
+    int checksum = 0;
+
+    while (rep < iters) {
+        int sum = 0;
+        i = 0;
+        while (i < 4096) {
+            int idx = perm[i];
+            sum = (sum + gdata[idx]) % 1000000007;
+            i = i + 1;
+        }
+        checksum = (checksum + sum) % 1000000007;
+        rep = rep + 1;
+    }
+
+    print(checksum);
+    return 0;
+}

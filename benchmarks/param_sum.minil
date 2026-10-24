@@ -1,0 +1,34 @@
+// Benchmark 7: param_sum (Parameter-Bounded)
+// Loop bound is a function parameter m.
+int pa[5000];
+
+int sum_slice(int m) {
+    int i = 0;
+    int s = 0;
+    while (i < m) {
+        s = (s + pa[i]) % 1000000007;
+        i = i + 1;
+    }
+    return s;
+}
+
+int main() {
+    int i = 0;
+    while (i < 5000) {
+        pa[i] = (i * 7 + 13) % 9973;
+        i = i + 1;
+    }
+
+    int iters = 250;
+    int rep = 0;
+    int total = 0;
+
+    while (rep < iters) {
+        // Parameter m is 5000 (within bounds)
+        total = (total + sum_slice(5000)) % 1000000007;
+        rep = rep + 1;
+    }
+
+    print(total);
+    return 0;
+}

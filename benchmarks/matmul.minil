@@ -1,0 +1,43 @@
+// Benchmark 4: matmul (Statically Provable)
+// 32x32 matrix multiplication on flat 1D arrays of size 1024.
+int ma[1024];
+int mb[1024];
+int mc[1024];
+
+int main() {
+    int iters = 25;
+    int rep = 0;
+    int checksum = 0;
+
+    while (rep < iters) {
+        int i = 0;
+        while (i < 1024) {
+            ma[i] = (i + rep) % 17;
+            mb[i] = (i * 2 + rep) % 19;
+            mc[i] = 0;
+            i = i + 1;
+        }
+
+        i = 0;
+        while (i < 32) {
+            int j = 0;
+            while (j < 32) {
+                int sum = 0;
+                int k = 0;
+                while (k < 32) {
+                    sum = (sum + ma[i * 32 + k] * mb[k * 32 + j]) % 1000000007;
+                    k = k + 1;
+                }
+                mc[i * 32 + j] = sum;
+                j = j + 1;
+            }
+            i = i + 1;
+        }
+
+        checksum = (checksum + mc[0] + mc[512] + mc[1023]) % 1000000007;
+        rep = rep + 1;
+    }
+
+    print(checksum);
+    return 0;
+}

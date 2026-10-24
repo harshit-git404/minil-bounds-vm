@@ -1,0 +1,45 @@
+// Benchmark 9: matvec_p (Parameter-Bounded)
+// Matrix-vector multiplication with parameter-bounded inner loop.
+int mat[4096];
+int vec[64];
+int res[64];
+
+int matvec_mul(int cols) {
+    int i = 0;
+    while (i < 64) {
+        int sum = 0;
+        int j = 0;
+        while (j < cols) {
+            sum = (sum + mat[i * 64 + j] * vec[j]) % 1000000007;
+            j = j + 1;
+        }
+        res[i] = sum;
+        i = i + 1;
+    }
+    return res[0];
+}
+
+int main() {
+    int i = 0;
+    while (i < 4096) {
+        mat[i] = (i * 3 + 1) % 97;
+        i = i + 1;
+    }
+    i = 0;
+    while (i < 64) {
+        vec[i] = (i * 5 + 2) % 89;
+        i = i + 1;
+    }
+
+    int iters = 200;
+    int rep = 0;
+    int total = 0;
+
+    while (rep < iters) {
+        total = (total + matvec_mul(64)) % 1000000007;
+        rep = rep + 1;
+    }
+
+    print(total);
+    return 0;
+}

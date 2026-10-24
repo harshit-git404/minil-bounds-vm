@@ -10,9 +10,12 @@ VM_SWITCH = vm/minil-vm-switch
 VM_COUNT = vm/minil-vm-count
 VM_DEFAULT = vm/minil-vm
 
-.PHONY: all vm test clean env
+.PHONY: all vm test clean env experiments
 
 all: vm env
+
+experiments: vm env
+	$(PYTHON) scripts/run_timing_harness.py
 
 vm: $(VM_DEFAULT) $(VM_GOTO) $(VM_SWITCH) $(VM_COUNT)
 

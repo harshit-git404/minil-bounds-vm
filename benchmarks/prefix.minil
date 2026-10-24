@@ -1,0 +1,31 @@
+// Benchmark 2: prefix (Statically Provable)
+// Computes prefix sum over array a[4000].
+int a[4000];
+int pref[4000];
+
+int main() {
+    int iters = 100;
+    int rep = 0;
+    int checksum = 0;
+
+    while (rep < iters) {
+        int i = 0;
+        while (i < 4000) {
+            a[i] = (i + rep) % 997;
+            i = i + 1;
+        }
+
+        pref[0] = a[0];
+        i = 1;
+        while (i < 4000) {
+            pref[i] = (pref[i - 1] + a[i]) % 1000000007;
+            i = i + 1;
+        }
+
+        checksum = (checksum + pref[3999]) % 1000000007;
+        rep = rep + 1;
+    }
+
+    print(checksum);
+    return 0;
+}

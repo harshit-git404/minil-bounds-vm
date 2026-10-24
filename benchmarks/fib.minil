@@ -1,0 +1,41 @@
+// Benchmark 13: fib (Null Control - No Arrays)
+// Computes Fibonacci sequence iteratively and recursively to serve as noise floor control.
+int fib_iter(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    int a = 0;
+    int b = 1;
+    int i = 2;
+    while (i <= n) {
+        int c = (a + b) % 1000000007;
+        a = b;
+        b = c;
+        i = i + 1;
+    }
+    return b;
+}
+
+int fib_rec(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    return (fib_rec(n - 1) + fib_rec(n - 2)) % 1000000007;
+}
+
+int main() {
+    int iters = 8000;
+    int i = 0;
+    int checksum = 0;
+
+    while (i < iters) {
+        checksum = (checksum + fib_iter(i % 100)) % 1000000007;
+        i = i + 1;
+    }
+
+    // Add a few recursive calls
+    checksum = (checksum + fib_rec(22)) % 1000000007;
+
+    print(checksum);
+    return 0;
+}
