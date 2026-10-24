@@ -1,0 +1,71 @@
+// LU decomposition without pivoting (statically provable)
+int a[10000];
+int l[10000];
+int u[10000];
+
+int main() {
+    int n = 100;
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int idx = 0;
+    int sum = 0;
+    int denom = 0;
+
+    while (i < 100) {
+        j = 0;
+        while (j < 100) {
+            idx = i * 100 + j;
+            if (i == j) {
+                a[idx] = 1000 + i;
+            } else {
+                a[idx] = ((i + 1) * (j + 1)) % 100 + 1;
+            }
+            l[idx] = 0;
+            u[idx] = 0;
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+
+    i = 0;
+    while (i < 100) {
+        k = i;
+        while (k < 100) {
+            sum = 0;
+            j = 0;
+            while (j < i) {
+                sum = sum + l[i * 100 + j] * u[j * 100 + k];
+                j = j + 1;
+            }
+            u[i * 100 + k] = a[i * 100 + k] - sum;
+            k = k + 1;
+        }
+
+        k = i + 1;
+        while (k < 100) {
+            sum = 0;
+            j = 0;
+            while (j < i) {
+                sum = sum + l[k * 100 + j] * u[j * 100 + i];
+                j = j + 1;
+            }
+            denom = u[i * 100 + i];
+            if (denom != 0) {
+                l[k * 100 + i] = (a[k * 100 + i] - sum) / denom;
+            }
+            k = k + 1;
+        }
+        l[i * 100 + i] = 1;
+        i = i + 1;
+    }
+
+    int chk = 0;
+    i = 0;
+    while (i < 10000) {
+        chk = (chk * 31 + l[i] + u[i]) % 1000000007;
+        i = i + 1;
+    }
+    print(chk);
+    return 0;
+}

@@ -1,0 +1,44 @@
+// Finite Impulse Response filter (statically provable)
+int x[30000];
+int h[32];
+int y[30000];
+
+int main() {
+    int n = 30000;
+    int k = 0;
+    int i = 0;
+    int tap = 0;
+    int acc = 0;
+
+    while (k < 32) {
+        h[k] = (k * 3 + 1) % 10;
+        k = k + 1;
+    }
+
+    while (i < 30000) {
+        x[i] = (i * 7 + 13) % 256;
+        y[i] = 0;
+        i = i + 1;
+    }
+
+    i = 32;
+    while (i < 30000) {
+        acc = 0;
+        tap = 0;
+        while (tap < 32) {
+            acc = acc + h[tap] * x[i - tap];
+            tap = tap + 1;
+        }
+        y[i] = acc % 1000000007;
+        i = i + 1;
+    }
+
+    int chk = 0;
+    i = 0;
+    while (i < 30000) {
+        chk = (chk * 29 + y[i]) % 1000000007;
+        i = i + 1;
+    }
+    print(chk);
+    return 0;
+}

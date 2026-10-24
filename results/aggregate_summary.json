@@ -1,26 +1,80 @@
 {
-  "R": {
-    "geomean_ratio": 1.026803545962155,
-    "geomean_overhead_pct": 2.680354596215495
+  "original_13": {
+    "R": {
+      "geomean_ratio": 1.0288995913268828,
+      "geomean_overhead_pct": 2.88995913268828
+    },
+    "F": {
+      "geomean_ratio": 1.0365092061290206,
+      "geomean_overhead_pct": 3.6509206129020644
+    },
+    "S": {
+      "geomean_ratio": 1.0191029787702477,
+      "geomean_overhead_pct": 1.9102978770247692
+    },
+    "H": {
+      "geomean_ratio": 1.0057945151455776,
+      "geomean_overhead_pct": 0.5794515145577606
+    },
+    "FS": {
+      "geomean_ratio": 1.0240823357572224,
+      "geomean_overhead_pct": 2.4082335757222406
+    },
+    "FH": {
+      "geomean_ratio": 1.0180657911130058,
+      "geomean_overhead_pct": 1.806579111300577
+    }
   },
-  "F": {
-    "geomean_ratio": 1.0495021722955802,
-    "geomean_overhead_pct": 4.950217229558018
+  "extended_10": {
+    "R": {
+      "geomean_ratio": 1.0128888201963895,
+      "geomean_overhead_pct": 1.2888820196389483
+    },
+    "F": {
+      "geomean_ratio": 1.0328664947505404,
+      "geomean_overhead_pct": 3.2866494750540376
+    },
+    "S": {
+      "geomean_ratio": 1.0012757104229661,
+      "geomean_overhead_pct": 0.12757104229661476
+    },
+    "H": {
+      "geomean_ratio": 1.0081239142270526,
+      "geomean_overhead_pct": 0.8123914227052609
+    },
+    "FS": {
+      "geomean_ratio": 1.010702790023232,
+      "geomean_overhead_pct": 1.0702790023231934
+    },
+    "FH": {
+      "geomean_ratio": 1.00561018087929,
+      "geomean_overhead_pct": 0.5610180879290105
+    }
   },
-  "S": {
-    "geomean_ratio": 1.0214783805087064,
-    "geomean_overhead_pct": 2.147838050870643
-  },
-  "H": {
-    "geomean_ratio": 1.0059240419814512,
-    "geomean_overhead_pct": 0.5924041981451245
-  },
-  "FS": {
-    "geomean_ratio": 1.0252429515387929,
-    "geomean_overhead_pct": 2.5242951538792857
-  },
-  "FH": {
-    "geomean_ratio": 1.0231535513633319,
-    "geomean_overhead_pct": 2.315355136333186
+  "combined_suite": {
+    "R": {
+      "geomean_ratio": 1.0215908323214307,
+      "geomean_overhead_pct": 2.1590832321430664
+    },
+    "F": {
+      "geomean_ratio": 1.0348518383305991,
+      "geomean_overhead_pct": 3.4851838330599128
+    },
+    "S": {
+      "geomean_ratio": 1.010960663058519,
+      "geomean_overhead_pct": 1.096066305851906
+    },
+    "H": {
+      "geomean_ratio": 1.006852664924852,
+      "geomean_overhead_pct": 0.6852664924851926
+    },
+    "FS": {
+      "geomean_ratio": 1.017978907247314,
+      "geomean_overhead_pct": 1.797890724731399
+    },
+    "FH": {
+      "geomean_ratio": 1.0123851388750276,
+      "geomean_overhead_pct": 1.2385138875027568
+    }
   }
 }

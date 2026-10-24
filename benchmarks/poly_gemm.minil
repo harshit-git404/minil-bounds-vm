@@ -1,0 +1,51 @@
+// PolyBench-style GEMM (statically provable)
+int a[6400];
+int b[6400];
+int c[6400];
+
+int main() {
+    int n = 80;
+    int alpha = 2;
+    int beta = 3;
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int idx = 0;
+
+    while (i < 80) {
+        j = 0;
+        while (j < 80) {
+            idx = i * 80 + j;
+            a[idx] = (i * j + 1) % 100;
+            b[idx] = (i - j + 100) % 100;
+            c[idx] = (i + j) % 50;
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+
+    i = 0;
+    while (i < 80) {
+        j = 0;
+        while (j < 80) {
+            idx = i * 80 + j;
+            c[idx] = c[idx] * beta;
+            k = 0;
+            while (k < 80) {
+                c[idx] = c[idx] + alpha * a[i * 80 + k] * b[k * 80 + j];
+                k = k + 1;
+            }
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+
+    int chk = 0;
+    i = 0;
+    while (i < 6400) {
+        chk = (chk * 17 + c[i]) % 1000000007;
+        i = i + 1;
+    }
+    print(chk);
+    return 0;
+}

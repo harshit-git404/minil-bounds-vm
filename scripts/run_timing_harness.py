@@ -274,23 +274,55 @@ def run_timing_experiment(benchmarks):
             f.write(",".join(r) + "\n")
     print("Summary written to results/timing_summary.csv")
 
-    # Geometric mean over 12 array benchmarks (fib excluded)
-    aggregates = {}
-    print("\n--- Geometric Mean Overhead across 12 Array Benchmarks (fib excluded) ---")
-    for m in [m for m in MODES if m != "U"]:
-        vals = benchmark_medians[m]
-        log_sum = sum(math.log(v) for v in vals)
-        geomean_ratio = math.exp(log_sum / len(vals))
-        geomean_overhead = (geomean_ratio - 1.0) * 100.0
-        aggregates[m] = {
-            "geomean_ratio": geomean_ratio,
-            "geomean_overhead_pct": geomean_overhead
-        }
-        print(f"Mode {m:2s}: ratio = {geomean_ratio:.4f} ({geomean_overhead:+.2f}%)")
+    ORIGINAL_13 = {"bsearch", "bubble", "fib", "fill_sum", "gather", "hist", "matmul", "matvec_p", "param_sum", "prefix", "rec_sum", "sieve", "stencil_p"}
+    EXTENDED_10 = {"qsort", "msort", "poly_gemm", "lu", "jacobi1d", "jacobi2d", "fir", "hash_table", "knapsack", "lcs"}
+
+    # Compute geomeans for: original (excl fib), extended, and combined
+    def compute_geomean(bench_list):
+        res = {}
+        for m in [m for m in MODES if m != "U"]:
+            vals = []
+            for b_name in bench_list:
+                if b_name == "fib" or b_name not in per_round_times:
+                    continue
+                t_u_list = per_round_times[b_name]["U"]
+                t_m_list = per_round_times[b_name][m]
+                ratios = [tm / tu for tm, tu in zip(t_m_list, t_u_list)]
+                vals.append(sorted(ratios)[len(ratios)//2])
+            if vals:
+                log_sum = sum(math.log(v) for v in vals)
+                gm = math.exp(log_sum / len(vals))
+                res[m] = {
+                    "geomean_ratio": gm,
+                    "geomean_overhead_pct": (gm - 1.0) * 100.0
+                }
+        return res
+
+    orig_benchmarks = [b for b in ORIGINAL_13 if b != "fib"]
+    ext_benchmarks = list(EXTENDED_10)
+    comb_benchmarks = [b for b in set(orig_benchmarks + ext_benchmarks) if b in per_round_times]
+
+    aggregates = {
+        "original_13": compute_geomean(orig_benchmarks),
+        "extended_10": compute_geomean(ext_benchmarks),
+        "combined_suite": compute_geomean(comb_benchmarks)
+    }
+
+    print("\n--- Geometric Mean Overhead: Original 12 Array Benchmarks ---")
+    for m, d in aggregates["original_13"].items():
+        print(f"Mode {m:2s}: ratio = {d['geomean_ratio']:.4f} ({d['geomean_overhead_pct']:+.2f}%)")
+
+    print("\n--- Geometric Mean Overhead: Extended 10 Benchmarks ---")
+    for m, d in aggregates["extended_10"].items():
+        print(f"Mode {m:2s}: ratio = {d['geomean_ratio']:.4f} ({d['geomean_overhead_pct']:+.2f}%)")
+
+    print("\n--- Geometric Mean Overhead: Combined Suite (22 Array Benchmarks) ---")
+    for m, d in aggregates["combined_suite"].items():
+        print(f"Mode {m:2s}: ratio = {d['geomean_ratio']:.4f} ({d['geomean_overhead_pct']:+.2f}%)")
 
     with open("results/aggregate_summary.json", "w") as f:
         json.dump(aggregates, f, indent=2)
-    print("Aggregate summary written to results/aggregate_summary.json")
+    print("\nAggregate summary written to results/aggregate_summary.json")
 
 def main():
     collect_env("results/env.json")

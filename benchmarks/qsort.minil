@@ -1,0 +1,55 @@
+// Quick sort (data-dependent)
+int data[20000];
+
+int partition(int low, int high) {
+    int pivot = data[high];
+    int i = low - 1;
+    int j = low;
+    int temp = 0;
+    while (j < high) {
+        if (data[j] <= pivot) {
+            i = i + 1;
+            temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
+        }
+        j = j + 1;
+    }
+    int temp2 = data[i + 1];
+    data[i + 1] = data[high];
+    data[high] = temp2;
+    return i + 1;
+}
+
+int qsort(int low, int high) {
+    if (low < high) {
+        int pi = partition(low, high);
+        qsort(low, pi - 1);
+        qsort(pi + 1, high);
+    }
+    return 0;
+}
+
+int main() {
+    int n = 15000;
+    int seed = 1234567;
+    int i = 0;
+    while (i < n) {
+        seed = (seed * 1103515245 + 12345) % 2147483647;
+        if (seed < 0) {
+            seed = -seed;
+        }
+        data[i] = seed % 100000;
+        i = i + 1;
+    }
+    qsort(0, n - 1);
+
+    int chk = 0;
+    i = 0;
+    while (i < n) {
+        chk = (chk * 31 + data[i]) % 1000000007;
+        i = i + 1;
+    }
+    print(chk);
+    return 0;
+}

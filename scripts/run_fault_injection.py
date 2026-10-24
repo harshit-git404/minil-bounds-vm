@@ -388,10 +388,32 @@ def run_fault_injection():
         for r in records:
             f.write(f"{r['benchmark']},{r['operator']},{r['mutant_id']},{r['classification']},{r['static_finding']},{r['diff_match']},{r['u_behavior']},{r['trap_array']},{r['trap_site']}\n")
 
+    ORIGINAL_13 = {"bsearch", "bubble", "fib", "fill_sum", "gather", "hist", "matmul", "matvec_p", "param_sum", "prefix", "rec_sum", "sieve", "stencil_p"}
+    EXTENDED_10 = {"qsort", "msort", "poly_gemm", "lu", "jacobi1d", "jacobi2d", "fir", "hash_table", "knapsack", "lcs"}
+
+    def summarize_suite(recs):
+        tot = len(recs)
+        flt = sum(1 for r in recs if r["classification"] == "faulty")
+        ben = tot - flt
+        def_v = sum(1 for r in recs if r["static_finding"] == "definite_violation")
+        more_a = sum(1 for r in recs if r["static_finding"] == "new_alarm")
+        silent_u = sum(1 for r in recs if r["u_behavior"] == "silent_corrupt")
+        return {
+            "total_mutants": tot,
+            "faulty_mutants": flt,
+            "benign_mutants": ben,
+            "definite_violations": def_v,
+            "new_alarms": more_a,
+            "silent_u_corruptions": silent_u
+        }
+
+    orig_recs = [r for r in records if r["benchmark"] in ORIGINAL_13]
+    ext_recs = [r for r in records if r["benchmark"] in EXTENDED_10]
+
     summary_data = {
-        "total_mutants": total_mutants,
-        "faulty_mutants": faulty_mutants,
-        "benign_mutants": benign_mutants,
+        "original_13": summarize_suite(orig_recs),
+        "extended_10": summarize_suite(ext_recs),
+        "combined_suite": summarize_suite(records),
         "operator_stats": operator_stats
     }
     with open("results/fault_injection_summary.json", "w") as f:

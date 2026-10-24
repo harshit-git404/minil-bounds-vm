@@ -1,0 +1,54 @@
+// Hash table with linear probing (data-dependent)
+int table_key[65536];
+int table_val[65536];
+int queries[30000];
+
+int main() {
+    int cap = 65536;
+    int mask = 65535;
+    int num_keys = 25000;
+    int i = 0;
+    int seed = 54321;
+    int k = 0;
+    int v = 0;
+    int slot = 0;
+    int q = 0;
+    int target = 0;
+
+    while (i < 65536) {
+        table_key[i] = 0;
+        table_val[i] = 0;
+        i = i + 1;
+    }
+
+    i = 0;
+    while (i < 25000) {
+        seed = (seed * 1103515245 + 12345) % 2147483647;
+        if (seed < 0) {
+            seed = -seed;
+        }
+        k = seed % 1000000 + 1;
+        v = (k * 31 + 7) % 50000;
+        slot = k % 65536;
+        while (table_key[slot] != 0) {
+            slot = (slot + 1) % 65536;
+        }
+        table_key[slot] = k;
+        table_val[slot] = v;
+        queries[i] = k;
+        i = i + 1;
+    }
+
+    int chk = 0;
+    while (q < 50000) {
+        target = queries[q % 25000];
+        slot = target % 65536;
+        while (table_key[slot] != target) {
+            slot = (slot + 1) % 65536;
+        }
+        chk = (chk * 13 + table_val[slot]) % 1000000007;
+        q = q + 1;
+    }
+    print(chk);
+    return 0;
+}

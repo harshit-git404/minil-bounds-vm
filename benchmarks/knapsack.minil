@@ -1,0 +1,49 @@
+// 0/1 Knapsack dynamic programming (statically provable)
+int weights[150];
+int values[150];
+int dp[3001];
+
+int main() {
+    int n = 150;
+    int cap = 3000;
+    int i = 0;
+    int w = 0;
+    int wt = 0;
+    int val = 0;
+    int cand = 0;
+
+    while (i < 150) {
+        weights[i] = (i * 7 + 3) % 40 + 1;
+        values[i] = (i * 13 + 5) % 100 + 1;
+        i = i + 1;
+    }
+
+    while (w <= 3000) {
+        dp[w] = 0;
+        w = w + 1;
+    }
+
+    i = 0;
+    while (i < 150) {
+        wt = weights[i];
+        val = values[i];
+        w = 3000;
+        while (w >= wt) {
+            cand = dp[w - wt] + val;
+            if (cand > dp[w]) {
+                dp[w] = cand;
+            }
+            w = w - 1;
+        }
+        i = i + 1;
+    }
+
+    int chk = 0;
+    w = 0;
+    while (w <= 3000) {
+        chk = (chk * 31 + dp[w]) % 1000000007;
+        w = w + 1;
+    }
+    print(chk);
+    return 0;
+}

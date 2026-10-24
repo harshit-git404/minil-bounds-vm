@@ -1,7 +1,7 @@
 {
-  "timer_min_delta_ns": 120,
-  "timer_median_delta_ns": 127,
-  "fib_noise_mean_ns": 49267690.72,
-  "fib_noise_std_ns": 15394983.570715884,
-  "fib_noise_cv_percent": 31.247625666502692
+  "timer_min_delta_ns": 82,
+  "timer_median_delta_ns": 86,
+  "fib_noise_mean_ns": 28194560.96,
+  "fib_noise_std_ns": 2511980.8916202546,
+  "fib_noise_cv_percent": 8.909452057735658
 }
