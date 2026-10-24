@@ -58,45 +58,45 @@ class CodeGenerator:
 
     def _emit_array_load(self, arr_id: int, site_id: int):
         if self.mode == "U":
-            self.emit(OP_ALOAD, arr_id, 0)
+            self.emit(OP_ALOAD, arr_id, site_id)
         elif self.mode == "R":
-            self.emit(OP_CHK, arr_id, 0)
-            self.emit(OP_ALOAD, arr_id, 0)
+            self.emit(OP_CHK, arr_id, site_id)
+            self.emit(OP_ALOAD, arr_id, site_id)
         elif self.mode == "F":
-            self.emit(OP_ALOADC, arr_id, 0)
+            self.emit(OP_ALOADC, arr_id, site_id)
         elif self.mode in ("S", "H"):
             if site_id in self.safe_sites:
-                self.emit(OP_ALOAD, arr_id, 0)
+                self.emit(OP_ALOAD, arr_id, site_id)
             else:
-                self.emit(OP_CHK, arr_id, 0)
-                self.emit(OP_ALOAD, arr_id, 0)
+                self.emit(OP_CHK, arr_id, site_id)
+                self.emit(OP_ALOAD, arr_id, site_id)
         elif self.mode in ("FS", "FH"):
             if site_id in self.safe_sites:
-                self.emit(OP_ALOAD, arr_id, 0)
+                self.emit(OP_ALOAD, arr_id, site_id)
             else:
-                self.emit(OP_ALOADC, arr_id, 0)
+                self.emit(OP_ALOADC, arr_id, site_id)
         else:
             raise ValueError(f"Unknown compilation mode: {self.mode}")
 
     def _emit_array_store(self, arr_id: int, site_id: int):
         if self.mode == "U":
-            self.emit(OP_ASTORE, arr_id, 0)
+            self.emit(OP_ASTORE, arr_id, site_id)
         elif self.mode == "R":
-            self.emit(OP_CHK, arr_id, 0)
-            self.emit(OP_ASTORE, arr_id, 0)
+            self.emit(OP_CHK, arr_id, site_id)
+            self.emit(OP_ASTORE, arr_id, site_id)
         elif self.mode == "F":
-            self.emit(OP_ASTOREC, arr_id, 0)
+            self.emit(OP_ASTOREC, arr_id, site_id)
         elif self.mode in ("S", "H"):
             if site_id in self.safe_sites:
-                self.emit(OP_ASTORE, arr_id, 0)
+                self.emit(OP_ASTORE, arr_id, site_id)
             else:
-                self.emit(OP_CHK, arr_id, 0)
-                self.emit(OP_ASTORE, arr_id, 0)
+                self.emit(OP_CHK, arr_id, site_id)
+                self.emit(OP_ASTORE, arr_id, site_id)
         elif self.mode in ("FS", "FH"):
             if site_id in self.safe_sites:
-                self.emit(OP_ASTORE, arr_id, 0)
+                self.emit(OP_ASTORE, arr_id, site_id)
             else:
-                self.emit(OP_ASTOREC, arr_id, 0)
+                self.emit(OP_ASTOREC, arr_id, site_id)
         else:
             raise ValueError(f"Unknown compilation mode: {self.mode}")
 

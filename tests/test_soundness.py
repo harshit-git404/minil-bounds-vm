@@ -87,7 +87,7 @@ class TestSoundness(unittest.TestCase):
                     self.assertTrue(len(trap_line) > 0)
                     # Extract pc from "at pc <num>"
                     parts = trap_line[0].split("at pc ")
-                    trap_pc = int(parts[1].split()[0])
+                    trap_pc = int(parts[1].split()[0].rstrip(","))
 
                     # In mode R, the instruction at trap_pc is CHK
                     # We can find which site this corresponds to in codegen.

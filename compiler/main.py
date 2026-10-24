@@ -9,6 +9,7 @@ from compiler.lexer import Lexer
 from compiler.parser import Parser
 from compiler.sema import Sema
 from compiler.analysis import IntervalAnalysis
+from compiler.hoisting import HoistingPlanner
 from compiler.codegen import CodeGenerator
 from compiler.disasm import disassemble_file
 
@@ -27,6 +28,9 @@ def compile_source(source_code: str, mode: str = "R", safe_sites=None, report_pa
 
     # 4. Static Safety Analysis (if mode in S, H, FS, FH)
     analysis = None
+    hoisting_res = None
+    target_ast = ast
+
     if mode in ("S", "H", "FS", "FH") and safe_sites is None:
         analysis = IntervalAnalysis(sema)
         report = analysis.analyze(ast)
@@ -36,9 +40,16 @@ def compile_source(source_code: str, mode: str = "R", safe_sites=None, report_pa
             with open(report_path, "w") as rf:
                 json.dump(report, rf, indent=2)
 
-    # 5. Code Generation
+    # 5. Loop-Guard Hoisting (if mode in H, FH)
+    if mode in ("H", "FH"):
+        planner = HoistingPlanner(sema)
+        hoisting_res = planner.plan_and_transform(ast, safe_sites if safe_sites is not None else set())
+        target_ast = hoisting_res.transformed_ast
+        safe_sites = hoisting_res.safe_sites
+
+    # 6. Code Generation
     codegen = CodeGenerator(sema, mode=mode, safe_sites=safe_sites)
-    codegen.generate(ast)
+    codegen.generate(target_ast)
 
     return codegen, sema, analysis
 

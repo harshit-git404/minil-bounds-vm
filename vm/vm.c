@@ -53,11 +53,11 @@ static void print_counts(void) {
 #endif
 }
 
-static void trap_bounds(int64_t pc, int64_t arr_id, int64_t idx) {
+static void trap_bounds(int64_t pc, int64_t arr_id, int64_t idx, int64_t site_id) {
     const char *arr_name = (arr_id >= 0 && (uint32_t)arr_id < num_arrays) ? arrays[arr_id].name : "unknown";
     int64_t len = (arr_id >= 0 && (uint32_t)arr_id < num_arrays) ? arrays[arr_id].length : -1;
-    fprintf(stderr, "TRAP: bounds check failed for array '%s' at pc %ld (index %ld, size %ld)\n",
-            arr_name, (long)pc, (long)idx, (long)len);
+    fprintf(stderr, "TRAP: bounds check failed for array '%s' at pc %ld, site %ld (index %ld, size %ld)\n",
+            arr_name, (long)pc, (long)site_id, (long)idx, (long)len);
     print_counts();
     exit(2);
 }
@@ -463,7 +463,7 @@ int main(int argc, char **argv) {
         int64_t arr_id = code[pc].a;
         int64_t idx = stack[sp - 1]; /* Does NOT pop */
         if ((uint64_t)idx >= (uint64_t)arrays[arr_id].length) {
-            trap_bounds(pc, arr_id, idx);
+            trap_bounds(pc, arr_id, idx, code[pc].b);
         }
         pc++;
         DISPATCH_NEXT();
@@ -476,7 +476,7 @@ int main(int argc, char **argv) {
         int64_t arr_id = code[pc].a;
         int64_t idx = stack[--sp];
         if ((uint64_t)idx >= (uint64_t)arrays[arr_id].length) {
-            trap_bounds(pc, arr_id, idx);
+            trap_bounds(pc, arr_id, idx, code[pc].b);
         }
         stack[sp++] = memory[arrays[arr_id].base_offset + idx];
         pc++;
@@ -491,7 +491,7 @@ int main(int argc, char **argv) {
         int64_t idx = stack[--sp];
         int64_t val = stack[--sp];
         if ((uint64_t)idx >= (uint64_t)arrays[arr_id].length) {
-            trap_bounds(pc, arr_id, idx);
+            trap_bounds(pc, arr_id, idx, code[pc].b);
         }
         memory[arrays[arr_id].base_offset + idx] = val;
         pc++;
