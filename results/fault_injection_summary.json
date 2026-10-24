@@ -1,0 +1,84 @@
+{
+  "total_mutants": 131,
+  "faulty_mutants": 93,
+  "benign_mutants": 38,
+  "operator_stats": {
+    "cond_lt_to_le": {
+      "total": 23,
+      "faulty": 11,
+      "benign": 12,
+      "definite_violations": 0,
+      "new_alarms": 9,
+      "neither": 14,
+      "u_silent_corrupt": 11,
+      "u_crash": 0,
+      "u_same_output": 12
+    },
+    "index_plus_1": {
+      "total": 16,
+      "faulty": 15,
+      "benign": 1,
+      "definite_violations": 0,
+      "new_alarms": 15,
+      "neither": 1,
+      "u_silent_corrupt": 15,
+      "u_crash": 0,
+      "u_same_output": 1
+    },
+    "index_minus_1": {
+      "total": 16,
+      "faulty": 15,
+      "benign": 1,
+      "definite_violations": 0,
+      "new_alarms": 15,
+      "neither": 1,
+      "u_silent_corrupt": 15,
+      "u_crash": 0,
+      "u_same_output": 1
+    },
+    "index_plus_k": {
+      "total": 16,
+      "faulty": 16,
+      "benign": 0,
+      "definite_violations": 0,
+      "new_alarms": 15,
+      "neither": 1,
+      "u_silent_corrupt": 16,
+      "u_crash": 0,
+      "u_same_output": 0
+    },
+    "index_minus_k": {
+      "total": 16,
+      "faulty": 16,
+      "benign": 0,
+      "definite_violations": 0,
+      "new_alarms": 15,
+      "neither": 1,
+      "u_silent_corrupt": 16,
+      "u_crash": 0,
+      "u_same_output": 0
+    },
+    "wrong_array_bound": {
+      "total": 20,
+      "faulty": 20,
+      "benign": 0,
+      "definite_violations": 4,
+      "new_alarms": 16,
+      "neither": 0,
+      "u_silent_corrupt": 4,
+      "u_crash": 0,
+      "u_same_output": 16
+    },
+    "missing_loop_update": {
+      "total": 24,
+      "faulty": 0,
+      "benign": 24,
+      "definite_violations": 0,
+      "new_alarms": 0,
+      "neither": 24,
+      "u_silent_corrupt": 0,
+      "u_crash": 24,
+      "u_same_output": 0
+    }
+  }
+}
