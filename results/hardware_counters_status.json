@@ -1,0 +1,6 @@
+{
+  "perf_available": false,
+  "hardware_pmu_available": false,
+  "kernel_release": "6.6.87.2-microsoft-standard-WSL2",
+  "details": "WARNING: perf not found for kernel 6.6.87.2-microsoft\n\n  You may need to install the following packages for this specific kernel:\n    linux-tools-6.6.87.2-microsoft-standard-WSL2\n    linux-cloud-tools-6.6.87.2-microsoft-standard-WSL2\n\n  You may also want to install one of the following packages to keep up to date:\n    linux-tools-standard-WSL2\n    linux-cloud-tools-standard-WSL2"
+}

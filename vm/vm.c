@@ -5,6 +5,11 @@
 #include <stdbool.h>
 #include <string.h>
 #include <time.h>
+
+#if defined(__x86_64__) || defined(_M_X64)
+#include <x86intrin.h>
+#define HAS_RDTSC 1
+#endif
 #include "vm.h"
 
 #define DISPATCH_SWITCH 1
@@ -165,6 +170,10 @@ int main(int argc, char **argv) {
     bp = 0;
 
     struct timespec start_time, end_time;
+
+#ifdef HAS_RDTSC
+    uint64_t rdtsc_start = __rdtsc();
+#endif
 
     /* Measure wall-clock time strictly around interpreter loop */
     clock_gettime(CLOCK_MONOTONIC, &start_time);
@@ -604,6 +613,11 @@ int main(int argc, char **argv) {
 
 end_loop:
     clock_gettime(CLOCK_MONOTONIC, &end_time);
+#ifdef HAS_RDTSC
+    uint64_t rdtsc_end = __rdtsc();
+    uint64_t rdtsc_cycles = rdtsc_end - rdtsc_start;
+    fprintf(stderr, "RDTSC_CYCLES: %llu\n", (unsigned long long)rdtsc_cycles);
+#endif
 
     long long elapsed_ns = (end_time.tv_sec - start_time.tv_sec) * 1000000000LL +
                            (end_time.tv_nsec - start_time.tv_nsec);
