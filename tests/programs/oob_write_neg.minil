@@ -1,0 +1,9 @@
+// Out-of-bounds write with negative index
+int a[10];
+
+int main() {
+    int idx = -5;
+    a[idx] = 999;
+    print(42);
+    return 0;
+}

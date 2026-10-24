@@ -53,3 +53,9 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# VM Binaries and bytecode
+vm/minil-vm*
+*.mbc
+__pycache__/
+*.py[cod]

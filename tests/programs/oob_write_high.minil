@@ -1,0 +1,9 @@
+// Out-of-bounds write beyond upper bound
+int a[10];
+
+int main() {
+    int idx = 15;
+    a[idx] = 999;
+    print(42);
+    return 0;
+}
