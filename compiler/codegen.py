@@ -75,6 +75,11 @@ class CodeGenerator:
                 self.emit(OP_ALOAD, arr_id, site_id)
             else:
                 self.emit(OP_ALOADC, arr_id, site_id)
+        elif self.mode == "N":
+            self.emit(OP_NOPCHK, arr_id, site_id)
+            self.emit(OP_ALOAD, arr_id, site_id)
+        elif self.mode == "FN":
+            self.emit(OP_ALOADN, arr_id, site_id)
         else:
             raise ValueError(f"Unknown compilation mode: {self.mode}")
 
@@ -97,6 +102,11 @@ class CodeGenerator:
                 self.emit(OP_ASTORE, arr_id, site_id)
             else:
                 self.emit(OP_ASTOREC, arr_id, site_id)
+        elif self.mode == "N":
+            self.emit(OP_NOPCHK, arr_id, site_id)
+            self.emit(OP_ASTORE, arr_id, site_id)
+        elif self.mode == "FN":
+            self.emit(OP_ASTOREN, arr_id, site_id)
         else:
             raise ValueError(f"Unknown compilation mode: {self.mode}")
 

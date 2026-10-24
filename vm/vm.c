@@ -9,6 +9,7 @@
 
 #define DISPATCH_SWITCH 1
 #define DISPATCH_GOTO   2
+#define DISPATCH_DIRECT 3
 
 #ifndef SWITCH
 #define SWITCH DISPATCH_SWITCH
@@ -16,6 +17,10 @@
 
 #ifndef GOTO
 #define GOTO DISPATCH_GOTO
+#endif
+
+#ifndef DIRECT
+#define DIRECT DISPATCH_DIRECT
 #endif
 
 #ifndef DISPATCH
@@ -199,6 +204,11 @@ int main(int argc, char **argv) {
         [OP_CHK]     = &&do_CHK,
         [OP_ALOADC]  = &&do_ALOADC,
         [OP_ASTOREC] = &&do_ASTOREC,
+#ifdef EXPERIMENTAL_DECOMP
+        [OP_NOPCHK]  = &&do_NOPCHK,
+        [OP_ALOADN]  = &&do_ALOADN,
+        [OP_ASTOREN] = &&do_ASTOREN,
+#endif
     };
 
 #ifdef COUNT
@@ -208,6 +218,68 @@ int main(int argc, char **argv) {
 } while (0)
 #else
 #define DISPATCH_INSN() goto *dispatch_table[code[pc].opcode]
+#endif
+
+    DISPATCH_INSN();
+
+#define TARGET(op) do_##op:
+#define DISPATCH_NEXT() DISPATCH_INSN()
+
+#elif DISPATCH == DISPATCH_DIRECT
+
+    static const void *dispatch_table[NUM_OPCODES] = {
+        [OP_NOP]     = &&do_NOP,
+        [OP_PUSH]    = &&do_PUSH,
+        [OP_POP]     = &&do_POP,
+        [OP_DUP]     = &&do_DUP,
+        [OP_LOAD]    = &&do_LOAD,
+        [OP_STORE]   = &&do_STORE,
+        [OP_ADD]     = &&do_ADD,
+        [OP_SUB]     = &&do_SUB,
+        [OP_MUL]     = &&do_MUL,
+        [OP_DIV]     = &&do_DIV,
+        [OP_MOD]     = &&do_MOD,
+        [OP_NEG]     = &&do_NEG,
+        [OP_EQ]      = &&do_EQ,
+        [OP_NE]      = &&do_NE,
+        [OP_LT]      = &&do_LT,
+        [OP_LE]      = &&do_LE,
+        [OP_GT]      = &&do_GT,
+        [OP_GE]      = &&do_GE,
+        [OP_NOT]     = &&do_NOT,
+        [OP_JMP]     = &&do_JMP,
+        [OP_JZ]      = &&do_JZ,
+        [OP_JNZ]     = &&do_JNZ,
+        [OP_CALL]    = &&do_CALL,
+        [OP_ENTER]   = &&do_ENTER,
+        [OP_RET]     = &&do_RET,
+        [OP_PRINT]   = &&do_PRINT,
+        [OP_HALT]    = &&do_HALT,
+        [OP_ALOAD]   = &&do_ALOAD,
+        [OP_ASTORE]  = &&do_ASTORE,
+        [OP_CHK]     = &&do_CHK,
+        [OP_ALOADC]  = &&do_ALOADC,
+        [OP_ASTOREC] = &&do_ASTOREC,
+#ifdef EXPERIMENTAL_DECOMP
+        [OP_NOPCHK]  = &&do_NOPCHK,
+        [OP_ALOADN]  = &&do_ALOADN,
+        [OP_ASTOREN] = &&do_ASTOREN,
+#endif
+    };
+
+    const void **direct_table = (const void **)malloc(sizeof(const void *) * (num_instructions + 1));
+    for (uint32_t i = 0; i < num_instructions; i++) {
+        direct_table[i] = dispatch_table[code[i].opcode];
+    }
+    direct_table[num_instructions] = &&do_HALT;
+
+#ifdef COUNT
+#define DISPATCH_INSN() do { \
+    total_instructions++; \
+    goto *direct_table[pc]; \
+} while (0)
+#else
+#define DISPATCH_INSN() goto *direct_table[pc]
 #endif
 
     DISPATCH_INSN();
@@ -498,6 +570,30 @@ int main(int argc, char **argv) {
         DISPATCH_NEXT();
     }
 
+#ifdef EXPERIMENTAL_DECOMP
+    TARGET(NOPCHK) {
+        pc++;
+        DISPATCH_NEXT();
+    }
+
+    TARGET(ALOADN) {
+        int64_t arr_id = code[pc].a;
+        int64_t idx = stack[--sp];
+        stack[sp++] = memory[arrays[arr_id].base_offset + idx];
+        pc++;
+        DISPATCH_NEXT();
+    }
+
+    TARGET(ASTOREN) {
+        int64_t arr_id = code[pc].a;
+        int64_t idx = stack[--sp];
+        int64_t val = stack[--sp];
+        memory[arrays[arr_id].base_offset + idx] = val;
+        pc++;
+        DISPATCH_NEXT();
+    }
+#endif
+
 #if DISPATCH == DISPATCH_SWITCH
         default:
             runtime_error("Invalid opcode", pc);
@@ -518,6 +614,9 @@ end_loop:
     free(memory);
     free(code);
     free(arrays);
+#if DISPATCH == DISPATCH_DIRECT
+    free((void *)direct_table);
+#endif
 
     return 0;
 }

@@ -34,6 +34,11 @@ OP_CHK     = 29
 OP_ALOADC  = 30
 OP_ASTOREC = 31
 
+# Experimental opcodes for decomposition study (Task 6)
+OP_NOPCHK  = 32
+OP_ALOADN  = 33
+OP_ASTOREN = 34
+
 OPCODE_NAMES = {
     OP_NOP: "NOP",
     OP_PUSH: "PUSH",
@@ -67,4 +72,7 @@ OPCODE_NAMES = {
     OP_CHK: "CHK",
     OP_ALOADC: "ALOADC",
     OP_ASTOREC: "ASTOREC",
+    OP_NOPCHK: "NOPCHK",
+    OP_ALOADN: "ALOADN",
+    OP_ASTOREN: "ASTOREN",
 }

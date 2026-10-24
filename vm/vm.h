@@ -40,7 +40,14 @@
 #define OP_ALOADC   30
 #define OP_ASTOREC  31
 
+#ifdef EXPERIMENTAL_DECOMP
+#define OP_NOPCHK   32
+#define OP_ALOADN   33
+#define OP_ASTOREN  34
+#define NUM_OPCODES 35
+#else
 #define NUM_OPCODES 32
+#endif
 
 /* Fixed-size 3-word instruction */
 typedef struct {
