@@ -16,8 +16,9 @@ VM_DECOMP_GOTO = vm/minil-vm-decomp-goto
 VM_DECOMP_SWITCH = vm/minil-vm-decomp-switch
 VM_DECOMP_DIRECT = vm/minil-vm-decomp-direct
 VM_OPT3 = vm/minil-vm-opt3
+VM_DECOMP_OPT3 = vm/minil-vm-decomp-opt3
 
-.PHONY: all vm test clean env experiments decomp_experiments
+.PHONY: all vm test clean env experiments decomp_experiments figures tables
 
 all: vm env
 
@@ -27,7 +28,13 @@ experiments: vm env
 decomp_experiments: vm env
 	$(PYTHON) scripts/run_decomposition.py
 
-vm: $(VM_DEFAULT) $(VM_GOTO) $(VM_SWITCH) $(VM_DIRECT) $(VM_COUNT) $(VM_DECOMP_GOTO) $(VM_DECOMP_SWITCH) $(VM_DECOMP_DIRECT) $(VM_OPT3)
+figures:
+	$(PYTHON) scripts/generate_figures.py
+
+tables:
+	$(PYTHON) scripts/generate_tables.py
+
+vm: $(VM_DEFAULT) $(VM_GOTO) $(VM_SWITCH) $(VM_DIRECT) $(VM_COUNT) $(VM_DECOMP_GOTO) $(VM_DECOMP_SWITCH) $(VM_DECOMP_DIRECT) $(VM_OPT3) $(VM_DECOMP_OPT3)
 
 $(VM_GOTO): $(VM_SRC) $(VM_HDR)
 	$(CC) $(CFLAGS) -DDISPATCH=GOTO $(VM_SRC) -o $(VM_GOTO)
@@ -52,6 +59,9 @@ $(VM_DECOMP_DIRECT): $(VM_SRC) $(VM_HDR)
 
 $(VM_OPT3): $(VM_SRC) $(VM_HDR)
 	$(CC) -O3 -std=c11 -Wall -Wextra -DDISPATCH=GOTO $(VM_SRC) -o $(VM_OPT3)
+
+$(VM_DECOMP_OPT3): $(VM_SRC) $(VM_HDR)
+	$(CC) -O3 -std=c11 -Wall -Wextra -DDISPATCH=GOTO -DEXPERIMENTAL_DECOMP $(VM_SRC) -o $(VM_DECOMP_OPT3)
 
 $(VM_DEFAULT): $(VM_GOTO)
 	cp $(VM_GOTO) $(VM_DEFAULT)
