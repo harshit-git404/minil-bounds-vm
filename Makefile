@@ -18,7 +18,7 @@ VM_DECOMP_DIRECT = vm/minil-vm-decomp-direct
 VM_OPT3 = vm/minil-vm-opt3
 VM_DECOMP_OPT3 = vm/minil-vm-decomp-opt3
 
-.PHONY: all vm test clean env experiments decomp_experiments figures tables
+.PHONY: all vm test clean env experiments decomp_experiments figures tables paper-assets
 
 all: vm env
 
@@ -33,6 +33,12 @@ figures:
 
 tables:
 	$(PYTHON) scripts/generate_tables.py
+
+paper-assets: figures tables
+	mkdir -p paper/figures paper/tables
+	cp results/figures/*.pdf results/figures/*.png paper/figures/
+	cp results/tables/*.tex paper/tables/
+	@echo "Copied vector PDFs and 300-dpi PNGs to paper/figures/ and .tex tables to paper/tables/"
 
 vm: $(VM_DEFAULT) $(VM_GOTO) $(VM_SWITCH) $(VM_DIRECT) $(VM_COUNT) $(VM_DECOMP_GOTO) $(VM_DECOMP_SWITCH) $(VM_DECOMP_DIRECT) $(VM_OPT3) $(VM_DECOMP_OPT3)
 
