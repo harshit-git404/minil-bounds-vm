@@ -1,0 +1,7 @@
+mode,baseline_ovh_pct,repeat1_ovh_pct,repeat2_ovh_pct,session_mean_pct,session_std_pct,session_range_pct,repeat1_raw_file,repeat2_raw_file
+R,+2.89%,+2.84%,+3.82%,+3.18%,0.55%,0.98%,timing_repeat1_raw_1792985950.csv,timing_repeat2_raw_1792986109.csv
+F,+3.65%,+3.85%,+2.23%,+3.24%,0.88%,1.62%,timing_repeat1_raw_1792985950.csv,timing_repeat2_raw_1792986109.csv
+S,+1.91%,+1.42%,+1.38%,+1.57%,0.30%,0.53%,timing_repeat1_raw_1792985950.csv,timing_repeat2_raw_1792986109.csv
+H,+0.58%,+0.18%,+1.50%,+0.75%,0.68%,1.33%,timing_repeat1_raw_1792985950.csv,timing_repeat2_raw_1792986109.csv
+FS,+2.41%,+1.25%,+2.27%,+1.98%,0.63%,1.15%,timing_repeat1_raw_1792985950.csv,timing_repeat2_raw_1792986109.csv
+FH,+1.81%,+1.22%,+2.62%,+1.88%,0.70%,1.40%,timing_repeat1_raw_1792985950.csv,timing_repeat2_raw_1792986109.csv
