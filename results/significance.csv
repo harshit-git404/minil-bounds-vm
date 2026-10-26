@@ -1,0 +1,26 @@
+suite,comparison,mode_a,mode_b,geomean_overhead_pct,ci_lower_pct,ci_upper_pct,ci_display,excludes_zero_95ci,statistically_significant,significant_benchmarks_count,source
+Combined 22,R vs U,R,U,+2.16%,+1.35%,+3.47%,"[+1.35%, +3.47%]",YES,YES,4 / 22,results/timing_raw_1792835669.csv
+Combined 22,F vs U,F,U,+3.49%,+2.33%,+4.88%,"[+2.33%, +4.88%]",YES,YES,7 / 22,results/timing_raw_1792835669.csv
+Combined 22,S vs U,S,U,+1.10%,-0.16%,+2.21%,"[-0.16%, +2.21%]",NO,NO,2 / 22,results/timing_raw_1792835669.csv
+Combined 22,H vs U,H,U,+0.69%,-0.66%,+1.97%,"[-0.66%, +1.97%]",NO,NO,2 / 22,results/timing_raw_1792835669.csv
+Combined 22,FS vs U,FS,U,+1.80%,+0.29%,+3.12%,"[+0.29%, +3.12%]",YES,YES,4 / 22,results/timing_raw_1792835669.csv
+Combined 22,FH vs U,FH,U,+1.24%,+0.14%,+2.50%,"[+0.14%, +2.50%]",YES,YES,2 / 22,results/timing_raw_1792835669.csv
+Combined 22,F vs R,F,R,+0.78%,-0.32%,+2.71%,"[-0.32%, +2.71%]",NO,NO,4 / 22,results/timing_raw_1792835669.csv
+Combined 22,H vs S,H,S,+0.31%,-0.90%,+1.54%,"[-0.90%, +1.54%]",NO,NO,3 / 22,results/timing_raw_1792835669.csv
+Combined 22,FS vs F,FS,F,-1.68%,-3.27%,+0.14%,"[-3.27%, +0.14%]",NO,NO,4 / 22,results/timing_raw_1792835669.csv
+Combined 22,FH vs H,FH,H,+0.22%,-1.24%,+1.28%,"[-1.24%, +1.28%]",NO,NO,2 / 22,results/timing_raw_1792835669.csv
+Combined 22,FH vs FS,FH,FS,-0.22%,-1.56%,+0.87%,"[-1.56%, +0.87%]",NO,NO,2 / 22,results/timing_raw_1792835669.csv
+Original 12,R vs U,R,U,+2.89%,+1.60%,+4.31%,"[+1.60%, +4.31%]",YES,YES,2 / 12,results/timing_raw_1792835669.csv
+Original 12,F vs U,F,U,+3.65%,+2.37%,+5.72%,"[+2.37%, +5.72%]",YES,YES,4 / 12,results/timing_raw_1792835669.csv
+Original 12,S vs U,S,U,+1.91%,+0.04%,+3.75%,"[+0.04%, +3.75%]",YES,YES,2 / 12,results/timing_raw_1792835669.csv
+Original 12,H vs U,H,U,+0.58%,-1.22%,+2.58%,"[-1.22%, +2.58%]",NO,NO,2 / 12,results/timing_raw_1792835669.csv
+Original 12,FS vs U,FS,U,+2.41%,+0.50%,+4.16%,"[+0.50%, +4.16%]",YES,YES,3 / 12,results/timing_raw_1792835669.csv
+Original 12,FH vs U,FH,U,+1.81%,-0.05%,+2.98%,"[-0.05%, +2.98%]",NO,NO,1 / 12,results/timing_raw_1792835669.csv
+Original 12,F vs R,F,R,+1.02%,-0.89%,+4.20%,"[-0.89%, +4.20%]",NO,NO,2 / 12,results/timing_raw_1792835669.csv
+Original 12,H vs S,H,S,+0.34%,-1.88%,+1.93%,"[-1.88%, +1.93%]",NO,NO,0 / 12,results/timing_raw_1792835669.csv
+Original 12,FS vs F,FS,F,-1.17%,-3.33%,+0.62%,"[-3.33%, +0.62%]",NO,NO,1 / 12,results/timing_raw_1792835669.csv
+Original 12,FH vs H,FH,H,+0.88%,-1.72%,+2.59%,"[-1.72%, +2.59%]",NO,NO,2 / 12,results/timing_raw_1792835669.csv
+Original 12,FH vs FS,FH,FS,-0.49%,-2.34%,+0.66%,"[-2.34%, +0.66%]",NO,NO,1 / 12,results/timing_raw_1792835669.csv
+Original 12 (GOTO Ablation),N vs R,N,R,-1.45%,-6.27%,+2.54%,"[-6.27%, +2.54%]",NO,NO,1 / 12,results/decomposition_raw.csv
+Original 12 (GOTO Ablation),F vs R,F,R,+0.08%,-4.29%,+2.96%,"[-4.29%, +2.96%]",NO,NO,2 / 12,results/decomposition_raw.csv
+Original 12 (GOTO Ablation),FN vs F,FN,F,-2.26%,-5.68%,+1.20%,"[-5.68%, +1.20%]",NO,NO,1 / 12,results/decomposition_raw.csv
