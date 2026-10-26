@@ -1,0 +1,21 @@
+================================================================================
+ SECTION 07: interval_analysis_report 
+================================================================================
+Analysis Report for examples/demo_sum.minil:
+  Total Access Sites : 2
+  Safe Sites Proved  : 1
+  Violations Flagged : 0
+  Unproven / Unknown : 1
+  - Site 0: array 'A' (line 8) -> unknown, interval: [0, +inf]
+  - Site 1: array 'A' (line 17) -> safe, interval: [0, 9]
+
+Analysis Report for benchmarks/bubble.minil:
+  Total Access Sites : 10
+  Safe Sites Proved  : 10
+  Violations Flagged : 0
+  Unproven / Unknown : 0
+  - Site 0: array 'a' (line 13) -> safe, interval: [0, 499]
+  - Site 1: array 'a' (line 21) -> safe, interval: ⊥
+  - Site 2: array 'a' (line 21) -> safe, interval: ⊥
+  - Site 3: array 'a' (line 22) -> safe, interval: [0, 498]
+  ... (6 more access sites)

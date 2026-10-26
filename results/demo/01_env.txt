@@ -1,0 +1,10 @@
+================================================================================
+ SECTION 01: env 
+================================================================================
+Environment & Toolchain        : Value
+---------------------------------------------------------------------------
+Operating System               : Linux 6.6.87.2-microsoft-standard-WSL2 (x86_64)
+CPU Model                      : 13th Gen Intel(R) Core(TM) i5-13420H
+C Compiler (GCC)               : gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Python Runtime                 : CPython 3.12.3
+Repository Root                : . (relative)

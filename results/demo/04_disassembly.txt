@@ -1,0 +1,92 @@
+================================================================================
+ SECTION 04: disassembly 
+================================================================================
+--- Mode U Bytecode Disassembly ---
+  ; MiniL Bytecode Disassembly: examples/demo_sum.mbc
+  ; Magic: MINILB01, Arrays: 1, Entry PC: 0, Instructions: 47
+  
+  ; Array Table:
+  ;   [0] 'A' (length=10, base_offset=128)
+  
+  ; Instruction Stream:
+  0000:  CALL     -> pc 23, nargs=0
+  0001:  HALT     
+  0002:  ENTER    2
+  0003:  PUSH     0
+  0004:  STORE    1
+  0005:  PUSH     0
+  0006:  STORE    2
+  0007:  LOAD     1
+  ... (39 more instructions)
+
+--- Mode R Bytecode Disassembly ---
+  ; MiniL Bytecode Disassembly: examples/demo_sum.mbc
+  ; Magic: MINILB01, Arrays: 1, Entry PC: 0, Instructions: 49
+  
+  ; Array Table:
+  ;   [0] 'A' (length=10, base_offset=128)
+  
+  ; Instruction Stream:
+  0000:  CALL     -> pc 24, nargs=0
+  0001:  HALT     
+  0002:  ENTER    2
+  0003:  PUSH     0
+  0004:  STORE    1
+  0005:  PUSH     0
+  0006:  STORE    2
+  0007:  LOAD     1
+  ... (41 more instructions)
+
+--- Mode F Bytecode Disassembly ---
+  ; MiniL Bytecode Disassembly: examples/demo_sum.mbc
+  ; Magic: MINILB01, Arrays: 1, Entry PC: 0, Instructions: 47
+  
+  ; Array Table:
+  ;   [0] 'A' (length=10, base_offset=128)
+  
+  ; Instruction Stream:
+  0000:  CALL     -> pc 23, nargs=0
+  0001:  HALT     
+  0002:  ENTER    2
+  0003:  PUSH     0
+  0004:  STORE    1
+  0005:  PUSH     0
+  0006:  STORE    2
+  0007:  LOAD     1
+  ... (39 more instructions)
+
+--- Mode S Bytecode Disassembly ---
+  ; MiniL Bytecode Disassembly: examples/demo_sum.mbc
+  ; Magic: MINILB01, Arrays: 1, Entry PC: 0, Instructions: 48
+  
+  ; Array Table:
+  ;   [0] 'A' (length=10, base_offset=128)
+  
+  ; Instruction Stream:
+  0000:  CALL     -> pc 24, nargs=0
+  0001:  HALT     
+  0002:  ENTER    2
+  0003:  PUSH     0
+  0004:  STORE    1
+  0005:  PUSH     0
+  0006:  STORE    2
+  0007:  LOAD     1
+  ... (40 more instructions)
+
+--- Mode H Bytecode Disassembly ---
+  ; MiniL Bytecode Disassembly: examples/demo_sum.mbc
+  ; Magic: MINILB01, Arrays: 1, Entry PC: 0, Instructions: 75
+  
+  ; Array Table:
+  ;   [0] 'A' (length=10, base_offset=128)
+  
+  ; Instruction Stream:
+  0000:  CALL     -> pc 51, nargs=0
+  0001:  HALT     
+  0002:  ENTER    2
+  0003:  PUSH     0
+  0004:  STORE    1
+  0005:  PUSH     0
+  0006:  STORE    2
+  0007:  LOAD     1
+  ... (67 more instructions)

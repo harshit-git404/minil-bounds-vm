@@ -1,0 +1,7 @@
+================================================================================
+ SECTION 08: hoisting_guard_fallback 
+================================================================================
+Mode R  -> TRAP: bounds check failed for array 'A' at pc 13, site 0 (index 10, size 10)
+Mode H  -> TRAP: bounds check failed for array 'A' at pc 40, site 0 (index 10, size 10)
+
+Note: Trap site ID is identical (site 0) between Mode R and Mode H fallback loop!

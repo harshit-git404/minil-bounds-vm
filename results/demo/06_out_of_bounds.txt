@@ -1,0 +1,6 @@
+================================================================================
+ SECTION 06: out_of_bounds 
+================================================================================
+Mode U  [Exit 0]: RDTSC_CYCLES: 65314
+Mode R  [Exit 2]: TRAP: bounds check failed for array 'arr' at pc 9, site 1 (index 10, size 5
+Mode F  [Exit 2]: TRAP: bounds check failed for array 'arr' at pc 8, site 1 (index 10, size 5

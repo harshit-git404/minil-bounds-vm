@@ -1,0 +1,15 @@
+================================================================================
+ SECTION 09: mutant_example 
+================================================================================
+Mutant Example: Condition Operator Mutation in benchmarks/param_sum.minil
+---------------------------------------------------------------------------
+Original Source Line : while (i < 5000) { pa[i] = ...; }
+Mutated Source Line  : while (i <= 5000) { pa[i] = ...; }  [Operator: cond_lt_to_le]
+
+Static Interval Analysis Result:
+  Index interval refined to [0, 5000]. Array bound length is 5000 (valid: 0..4999).
+  Static Alarm: Site 0 interval straddles array bound -> UNPROVEN ALARM raised.
+
+Runtime Verification Behavior:
+  Mode U (Unchecked): Silently executes, corrupts adjacent heap memory, returns 0.
+  Mode R (Checked)  : Traps at index=5000: 'TRAP: bounds check failed for array pa at site 0'

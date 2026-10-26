@@ -1,0 +1,23 @@
+// Demo program: parameter-bounded sum over array A
+int A[10];
+
+int sum_slice(int m) {
+    int i = 0;
+    int s = 0;
+    while (i < m) {
+        s = s + A[i];
+        i = i + 1;
+    }
+    return s;
+}
+
+int main() {
+    int i = 0;
+    while (i < 10) {
+        A[i] = i * 10;
+        i = i + 1;
+    }
+    int total = sum_slice(10);
+    print(total);
+    return 0;
+}

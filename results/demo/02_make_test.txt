@@ -1,0 +1,42 @@
+================================================================================
+ SECTION 02: make_test 
+================================================================================
+make: Nothing to be done for 'vm'.
+
+All MiniL Stage 1 tests passed successfully!
+test_bubble_sort_inner_loop (test_analysis.TestIntervalAnalysis.test_bubble_sort_inner_loop) ... ok
+test_interval_arithmetic (test_analysis.TestIntervalAnalysis.test_interval_arithmetic) ... ok
+test_statically_definite_violation (test_analysis.TestIntervalAnalysis.test_statically_definite_violation) ... ok
+test_statically_safe_loop (test_analysis.TestIntervalAnalysis.test_statically_safe_loop) ... ok
+test_unknown_sites (test_analysis.TestIntervalAnalysis.test_unknown_sites) ... ok
+test_mode_f_codegen (test_codegen.TestCodeGen.test_mode_f_codegen) ... ok
+test_mode_r_codegen (test_codegen.TestCodeGen.test_mode_r_codegen) ... ok
+test_mode_u_codegen (test_codegen.TestCodeGen.test_mode_u_codegen) ... ok
+test_edge_cases (test_hoisting.TestHoisting.test_edge_cases) ... ok
+test_hoisting_eliminates_checks (test_hoisting.TestHoisting.test_hoisting_eliminates_checks) ... ok
+test_comments (test_lexer.TestLexer.test_comments) ... ok
+test_invalid_character (test_lexer.TestLexer.test_invalid_character) ... ok
+test_keywords_and_identifiers (test_lexer.TestLexer.test_keywords_and_identifiers) ... ok
+test_literals_and_operators (test_lexer.TestLexer.test_literals_and_operators) ... ok
+test_unterminated_comment (test_lexer.TestLexer.test_unterminated_comment) ... ok
+test_array_access_and_assignment (test_parser.TestParser.test_array_access_and_assignment) ... ok
+test_global_array_and_function (test_parser.TestParser.test_global_array_and_function) ... ok
+test_operator_precedence (test_parser.TestParser.test_operator_precedence) ... ok
+test_syntax_errors (test_parser.TestParser.test_syntax_errors) ... ok
+test_constant_bounds_diagnostic (test_sema.TestSema.test_constant_bounds_diagnostic) ... [DIAGNOSTIC] Compile-time bounds violation: access to array 'a' at constant index 15 is out of bounds [0, 10) at line 4, col 13
+[DIAGNOSTIC] Compile-time bounds violation: access to array 'a' at constant index -2 is out of bounds [0, 10) at line 5, col 21
+ok
+test_function_arity_mismatch (test_sema.TestSema.test_function_arity_mismatch) ... ok
+test_missing_main (test_sema.TestSema.test_missing_main) ... ok
+test_undeclared_array (test_sema.TestSema.test_undeclared_array) ... ok
+test_undeclared_variable (test_sema.TestSema.test_undeclared_variable) ... ok
+test_valid_program (test_sema.TestSema.test_valid_program) ... ok
+test_randomized_soundness (test_soundness.TestSoundness.test_randomized_soundness) ... ok
+test_in_bounds_programs_equivalence (test_vm.TestVM.test_in_bounds_programs_equivalence) ... ok
+test_instrumented_counts (test_vm.TestVM.test_instrumented_counts) ... ok
+test_out_of_bounds_behavior (test_vm.TestVM.test_out_of_bounds_behavior) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 10.052s
+
+OK

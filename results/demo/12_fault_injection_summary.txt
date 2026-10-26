@@ -1,0 +1,13 @@
+================================================================================
+ SECTION 12: fault_injection_summary 
+================================================================================
+Fault Injection Metric                        : Measured Count / %
+---------------------------------------------------------------------------
+Total Mutants Tested                          : 329
+Faulty Mutants (Trapped by Mode R)            : 213
+Benign Mutants (Identical In-Bounds Result)   : 116
+Compile-Time Definite Violations Detected     : 5 (100% precision, 0 false alarms)
+Faulty Mutants Noticed Statically (Detection) : 195 / 213 (91.5%)
+Mode U Silent Memory Corruptions              : 181 / 213 (85.0%)
+Mode U Process Crashes (SIGSEGV/Abort)        : 0 (0.0% crash visibility)
+Differential Divergences (R, F, S, H, FS, FH) : 0 (100% behavioral match)
