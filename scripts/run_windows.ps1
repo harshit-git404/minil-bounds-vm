@@ -46,7 +46,7 @@ foreach ($bench in $Benchmarks) {
 }
 
 $RawCsv = "results/timing_raw_windows.csv"
-"benchmark,round,mode,time_ns" | Out-File -FilePath $RawCsv -Encoding ascii
+"round,benchmark,mode,time_ns,time_s" | Out-File -FilePath $RawCsv -Encoding ascii
 
 $TimingData = @{}
 
@@ -95,19 +95,21 @@ foreach ($bench in $Benchmarks) {
         }
 
         foreach ($m in $Modes) {
-            "$bName,$r,$m,$($RoundTimes[$m])" | Out-File -FilePath $RawCsv -Append -Encoding ascii
+            $tVal = $RoundTimes[$m]
+            $timeS = [string]::Format([System.Globalization.CultureInfo]::InvariantCulture, "{0:F9}", ($tVal / 1e9))
+            "$($r+1),$bName,$m,$tVal,$timeS" | Out-File -FilePath $RawCsv -Append -Encoding ascii
             $key = "$bName,$m"
             if (-not $TimingData.ContainsKey($key)) {
                 $TimingData[$key] = [System.Collections.Generic.List[int64]]::new()
             }
-            $TimingData[$key].Add($RoundTimes[$m])
+            $TimingData[$key].Add($tVal)
         }
     }
 }
 
 Write-Host "Computing summary statistics and overhead ratios..."
 $SummaryCsv = "results/timing_summary_windows.csv"
-"benchmark,mode,median_time_ns,median_ratio,median_overhead_pct,ci_lower_pct,ci_upper_pct" | Out-File -FilePath $SummaryCsv -Encoding ascii
+"benchmark,mode,median_time_ns,median_overhead_pct,ci_lower_pct,ci_upper_pct,overhead_pct" | Out-File -FilePath $SummaryCsv -Encoding ascii
 
 foreach ($bench in $Benchmarks) {
     $bName = $bench.BaseName
@@ -139,7 +141,7 @@ foreach ($bench in $Benchmarks) {
         $ciLow = $sortedBoot[25]
         $ciHigh = $sortedBoot[975]
 
-        "$bName,$m,$medTime,$([math]::Round($medRatio, 5)),$([math]::Round($ovhPct, 2)),$([math]::Round($ciLow, 2)),$([math]::Round($ciHigh, 2))" | Out-File -FilePath $SummaryCsv -Append -Encoding ascii
+        "$bName,$m,$medTime,$([math]::Round($ovhPct, 2)),$([math]::Round($ciLow, 2)),$([math]::Round($ciHigh, 2)),$([math]::Round($ovhPct, 2))" | Out-File -FilePath $SummaryCsv -Append -Encoding ascii
     }
 }
 
