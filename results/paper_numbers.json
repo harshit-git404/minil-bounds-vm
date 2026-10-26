@@ -1,0 +1,794 @@
+{
+  "timing_overheads": {
+    "original_12": {
+      "R": {
+        "geomean_ratio": 1.0288995913268828,
+        "geomean_overhead_pct": 2.88995913268828,
+        "display": "+2.89%",
+        "ci_95": [
+          1.5829221537570604,
+          4.268329426445727
+        ],
+        "ci_display": "[+1.58%, +4.27%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "F": {
+        "geomean_ratio": 1.0365092061290206,
+        "geomean_overhead_pct": 3.6509206129020644,
+        "display": "+3.65%",
+        "ci_95": [
+          2.222467441980691,
+          5.859644526203778
+        ],
+        "ci_display": "[+2.22%, +5.86%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "S": {
+        "geomean_ratio": 1.0191029787702477,
+        "geomean_overhead_pct": 1.9102978770247692,
+        "display": "+1.91%",
+        "ci_95": [
+          0.16711661447974535,
+          3.6681034684385105
+        ],
+        "ci_display": "[+0.17%, +3.67%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "H": {
+        "geomean_ratio": 1.0057945151455776,
+        "geomean_overhead_pct": 0.5794515145577606,
+        "display": "+0.58%",
+        "ci_95": [
+          -1.2495689326654125,
+          2.8256272986499464
+        ],
+        "ci_display": "[-1.25%, +2.83%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "FS": {
+        "geomean_ratio": 1.0240823357572224,
+        "geomean_overhead_pct": 2.4082335757222406,
+        "display": "+2.41%",
+        "ci_95": [
+          0.4862869074048426,
+          4.054873630059208
+        ],
+        "ci_display": "[+0.49%, +4.05%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "FH": {
+        "geomean_ratio": 1.0180657911130058,
+        "geomean_overhead_pct": 1.806579111300577,
+        "display": "+1.81%",
+        "ci_95": [
+          -0.03876635005449769,
+          2.983250945071725
+        ],
+        "ci_display": "[-0.04%, +2.98%]",
+        "source": "results/timing_raw_1792835669.csv"
+      }
+    },
+    "combined_22": {
+      "R": {
+        "geomean_ratio": 1.0215908323214307,
+        "geomean_overhead_pct": 2.1590832321430664,
+        "display": "+2.16%",
+        "ci_95": [
+          1.3396879037052,
+          3.547887562994534
+        ],
+        "ci_display": "[+1.34%, +3.55%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "F": {
+        "geomean_ratio": 1.0348518383305991,
+        "geomean_overhead_pct": 3.4851838330599128,
+        "display": "+3.49%",
+        "ci_95": [
+          2.275231440393366,
+          4.892367437715639
+        ],
+        "ci_display": "[+2.28%, +4.89%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "S": {
+        "geomean_ratio": 1.010960663058519,
+        "geomean_overhead_pct": 1.096066305851906,
+        "display": "+1.10%",
+        "ci_95": [
+          -0.13789595999816884,
+          2.1694694005929938
+        ],
+        "ci_display": "[-0.14%, +2.17%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "H": {
+        "geomean_ratio": 1.006852664924852,
+        "geomean_overhead_pct": 0.6852664924851926,
+        "display": "+0.69%",
+        "ci_95": [
+          -0.7521537153635127,
+          2.030153779582511
+        ],
+        "ci_display": "[-0.75%, +2.03%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "FS": {
+        "geomean_ratio": 1.017978907247314,
+        "geomean_overhead_pct": 1.797890724731399,
+        "display": "+1.80%",
+        "ci_95": [
+          0.2803310803745518,
+          3.092081094191146
+        ],
+        "ci_display": "[+0.28%, +3.09%]",
+        "source": "results/timing_raw_1792835669.csv"
+      },
+      "FH": {
+        "geomean_ratio": 1.0123851388750276,
+        "geomean_overhead_pct": 1.2385138875027568,
+        "display": "+1.24%",
+        "ci_95": [
+          0.11368563204223747,
+          2.4880703256399572
+        ],
+        "ci_display": "[+0.11%, +2.49%]",
+        "source": "results/timing_raw_1792835669.csv"
+      }
+    }
+  },
+  "dispatch_ablation": {
+    "GOTO": {
+      "U": {
+        "geomean_ratio": 1.0,
+        "geomean_overhead_pct": 0.0,
+        "display": "+0.00%",
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "N": {
+        "geomean_ratio": 1.0140763338935639,
+        "geomean_overhead_pct": 1.4076333893563886,
+        "display": "+1.41%",
+        "ci_95": [
+          -2.2068810191946953,
+          5.230905867344782
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "R": {
+        "geomean_ratio": 1.0290893579344096,
+        "geomean_overhead_pct": 2.9089357934409588,
+        "display": "+2.91%",
+        "ci_95": [
+          -0.7102254563371102,
+          5.842554428011115
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "F": {
+        "geomean_ratio": 1.0653779815921405,
+        "geomean_overhead_pct": 6.537798159214048,
+        "display": "+6.54%",
+        "ci_95": [
+          2.0709131010820725,
+          10.712605069094794
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FN": {
+        "geomean_ratio": 1.0004484963747053,
+        "geomean_overhead_pct": 0.044849637470534276,
+        "display": "+0.04%",
+        "ci_95": [
+          -2.073445285483555,
+          2.991886205254013
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "S": {
+        "geomean_ratio": 1.0062841955337167,
+        "geomean_overhead_pct": 0.628419553371673,
+        "display": "+0.63%",
+        "ci_95": [
+          -2.141612812100968,
+          4.173699588655633
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "H": {
+        "geomean_ratio": 1.010015150880498,
+        "geomean_overhead_pct": 1.001515088049798,
+        "display": "+1.00%",
+        "ci_95": [
+          -1.5596013619781246,
+          3.4789376102821734
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FS": {
+        "geomean_ratio": 1.0433343087283191,
+        "geomean_overhead_pct": 4.3334308728319115,
+        "display": "+4.33%",
+        "ci_95": [
+          1.129928128279012,
+          8.839431129656482
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FH": {
+        "geomean_ratio": 1.0367791039626788,
+        "geomean_overhead_pct": 3.6779103962678805,
+        "display": "+3.68%",
+        "ci_95": [
+          -0.0630693241544189,
+          8.648193685595862
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      }
+    },
+    "SWITCH": {
+      "U": {
+        "geomean_ratio": 1.0,
+        "geomean_overhead_pct": 0.0,
+        "display": "+0.00%",
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "N": {
+        "geomean_ratio": 1.0442125376519689,
+        "geomean_overhead_pct": 4.421253765196886,
+        "display": "+4.42%",
+        "ci_95": [
+          0.5585799159396387,
+          9.089720352499198
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "R": {
+        "geomean_ratio": 1.0532472537017383,
+        "geomean_overhead_pct": 5.324725370173833,
+        "display": "+5.32%",
+        "ci_95": [
+          2.547765564018545,
+          11.977482444106258
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "F": {
+        "geomean_ratio": 0.9759397128226359,
+        "geomean_overhead_pct": -2.406028717736408,
+        "display": "-2.41%",
+        "ci_95": [
+          -6.256620911133293,
+          2.4604304410782207
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FN": {
+        "geomean_ratio": 0.9801943157455801,
+        "geomean_overhead_pct": -1.9805684254419864,
+        "display": "-1.98%",
+        "ci_95": [
+          -6.986551982035671,
+          0.7363581423469157
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "S": {
+        "geomean_ratio": 1.0104832052478103,
+        "geomean_overhead_pct": 1.0483205247810323,
+        "display": "+1.05%",
+        "ci_95": [
+          -2.1118384520110167,
+          6.733385339109699
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "H": {
+        "geomean_ratio": 1.000735579914755,
+        "geomean_overhead_pct": 0.07355799147550357,
+        "display": "+0.07%",
+        "ci_95": [
+          -4.135425581761599,
+          2.9554863627943906
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FS": {
+        "geomean_ratio": 1.0069219832808936,
+        "geomean_overhead_pct": 0.6921983280893551,
+        "display": "+0.69%",
+        "ci_95": [
+          -5.093459226426422,
+          4.925560532555884
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FH": {
+        "geomean_ratio": 0.9984926968685474,
+        "geomean_overhead_pct": -0.1507303131452642,
+        "display": "-0.15%",
+        "ci_95": [
+          -3.39834649728723,
+          3.9551543275633927
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      }
+    },
+    "DIRECT": {
+      "U": {
+        "geomean_ratio": 1.0,
+        "geomean_overhead_pct": 0.0,
+        "display": "+0.00%",
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "N": {
+        "geomean_ratio": 1.0108312566347035,
+        "geomean_overhead_pct": 1.0831256634703523,
+        "display": "+1.08%",
+        "ci_95": [
+          -1.9641619766439633,
+          4.021635017262737
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "R": {
+        "geomean_ratio": 1.0032002530737523,
+        "geomean_overhead_pct": 0.32002530737522683,
+        "display": "+0.32%",
+        "ci_95": [
+          -2.752399543686146,
+          5.478839665373925
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "F": {
+        "geomean_ratio": 1.0601737649582512,
+        "geomean_overhead_pct": 6.017376495825122,
+        "display": "+6.02%",
+        "ci_95": [
+          1.9054695136447863,
+          11.521015420075841
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FN": {
+        "geomean_ratio": 1.0221841567445686,
+        "geomean_overhead_pct": 2.218415674456864,
+        "display": "+2.22%",
+        "ci_95": [
+          -2.042931474128362,
+          5.186098650446258
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "S": {
+        "geomean_ratio": 1.037296086447834,
+        "geomean_overhead_pct": 3.7296086447834,
+        "display": "+3.73%",
+        "ci_95": [
+          0.025042829544763556,
+          6.4154110637281825
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "H": {
+        "geomean_ratio": 1.0320836607287054,
+        "geomean_overhead_pct": 3.2083660728705388,
+        "display": "+3.21%",
+        "ci_95": [
+          0.5112395709955697,
+          7.450660572786094
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FS": {
+        "geomean_ratio": 1.0312981273726642,
+        "geomean_overhead_pct": 3.129812737266424,
+        "display": "+3.13%",
+        "ci_95": [
+          -0.677483440915827,
+          6.8416061342776
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FH": {
+        "geomean_ratio": 1.017749077200212,
+        "geomean_overhead_pct": 1.7749077200212016,
+        "display": "+1.77%",
+        "ci_95": [
+          -0.8403345017970354,
+          3.972417067912093
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      }
+    },
+    "OPT3": {
+      "U": {
+        "geomean_ratio": 1.0,
+        "geomean_overhead_pct": 0.0,
+        "display": "+0.00%",
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "N": {
+        "geomean_ratio": 1.015063534871636,
+        "geomean_overhead_pct": 1.506353487163592,
+        "display": "+1.51%",
+        "ci_95": [
+          -1.8157913401759096,
+          6.462901909761198
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "R": {
+        "geomean_ratio": 1.0346936029365572,
+        "geomean_overhead_pct": 3.469360293655721,
+        "display": "+3.47%",
+        "ci_95": [
+          0.07330931512714578,
+          8.697152159075895
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "F": {
+        "geomean_ratio": 1.0296902322190435,
+        "geomean_overhead_pct": 2.9690232219043544,
+        "display": "+2.97%",
+        "ci_95": [
+          -0.44121974872526337,
+          7.377082829275272
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FN": {
+        "geomean_ratio": 1.0062422699382298,
+        "geomean_overhead_pct": 0.624226993822985,
+        "display": "+0.62%",
+        "ci_95": [
+          -2.7254850638390615,
+          4.558528172401455
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "S": {
+        "geomean_ratio": 1.027179832483745,
+        "geomean_overhead_pct": 2.7179832483744892,
+        "display": "+2.72%",
+        "ci_95": [
+          -0.38840903804456817,
+          5.050231721994702
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "H": {
+        "geomean_ratio": 1.0249914022074744,
+        "geomean_overhead_pct": 2.4991402207474422,
+        "display": "+2.50%",
+        "ci_95": [
+          -0.8106508004704582,
+          5.670981959139909
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FS": {
+        "geomean_ratio": 1.0352633063980303,
+        "geomean_overhead_pct": 3.5263306398030325,
+        "display": "+3.53%",
+        "ci_95": [
+          1.503042388789333,
+          7.007541690893393
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      },
+      "FH": {
+        "geomean_ratio": 1.0420818787222152,
+        "geomean_overhead_pct": 4.208187872221525,
+        "display": "+4.21%",
+        "ci_95": [
+          0.8686248708316358,
+          6.872797168254108
+        ],
+        "source": "results/dispatch_ablation_summary.csv"
+      }
+    }
+  },
+  "dispatch_share_of_check_cost": {
+    "GOTO": {
+      "median_share_pct": 46.50264658762316,
+      "display": "46.5%",
+      "ci_95": [
+        28.34693599409271,
+        70.55859867415842
+      ],
+      "ci_display": "[28.3%, 70.6%]",
+      "source": "results/decomposition_summary.csv"
+    },
+    "SWITCH": {
+      "median_share_pct": 59.50472557632834,
+      "display": "59.5%",
+      "ci_95": [
+        31.612289896084793,
+        77.4250327783857
+      ],
+      "ci_display": "[31.6%, 77.4%]",
+      "source": "results/decomposition_summary.csv"
+    },
+    "DIRECT": {
+      "median_share_pct": 36.458636997749224,
+      "display": "36.5%",
+      "ci_95": [
+        20.651079853733048,
+        53.90440006090578
+      ],
+      "ci_display": "[20.7%, 53.9%]",
+      "source": "results/decomposition_summary.csv"
+    },
+    "OPT3": {
+      "median_share_pct": 47.314780015010264,
+      "display": "47.3%",
+      "ci_95": [
+        22.164638319375467,
+        77.3541483239539
+      ],
+      "ci_display": "[22.2%, 77.4%]",
+      "source": "results/decomposition_summary.csv"
+    }
+  },
+  "static_counts": {
+    "total_access_sites": 184,
+    "safe_sites": 150,
+    "hoisted_sites": 11,
+    "eliminated_sites": 161,
+    "residual_sites": 23,
+    "elimination_rate_pct": 87.5,
+    "elimination_rate_display": "87.5%",
+    "source": "results/static_counts.csv"
+  },
+  "bytecode_size_growth": {
+    "R": {
+      "geomean_ratio": 1.0606055002888621,
+      "growth_pct": 6.0605500288862135,
+      "display": "+6.1%",
+      "source": "results/static_counts.csv"
+    },
+    "F": {
+      "geomean_ratio": 1.0,
+      "growth_pct": 0.0,
+      "display": "+0.0%",
+      "source": "results/static_counts.csv"
+    },
+    "S": {
+      "geomean_ratio": 1.0111786103865286,
+      "growth_pct": 1.1178610386528565,
+      "display": "+1.1%",
+      "source": "results/static_counts.csv"
+    },
+    "H": {
+      "geomean_ratio": 1.1017988638213307,
+      "growth_pct": 10.179886382133073,
+      "display": "+10.2%",
+      "source": "results/static_counts.csv"
+    },
+    "FS": {
+      "geomean_ratio": 1.0,
+      "growth_pct": 0.0,
+      "display": "+0.0%",
+      "source": "results/static_counts.csv"
+    },
+    "FH": {
+      "geomean_ratio": 1.0918460231212004,
+      "growth_pct": 9.184602312120038,
+      "display": "+9.2%",
+      "source": "results/static_counts.csv"
+    }
+  },
+  "dynamic_counts": {
+    "r_checks": 34955868,
+    "s_checks": 10063184,
+    "h_checks": 4733620,
+    "fh_checks": 4733620,
+    "checks_eliminated_by_hoisting": 30222248,
+    "checks_eliminated_display": "30.2M",
+    "elimination_rate_pct": 86.45829650117686,
+    "elimination_rate_display": "86.5%",
+    "source": "results/dynamic_counts.csv"
+  },
+  "fault_injection": {
+    "total_mutants": 329,
+    "faulty_mutants": 213,
+    "benign_mutants": 116,
+    "definite_violations": 5,
+    "new_alarms": 190,
+    "total_statically_noticed": 195,
+    "static_detection_rate_pct": 91.54929577464789,
+    "static_detection_rate_display": "91.5%",
+    "u_silent_corruptions": 181,
+    "u_silent_corruption_rate_pct": 84.97652582159625,
+    "u_silent_corruption_rate_display": "85.0%",
+    "u_crashes": 0,
+    "differential_divergences_count": 0,
+    "operator_stats": {
+      "cond_lt_to_le": {
+        "total": 51,
+        "faulty": 30,
+        "benign": 21,
+        "definite_violations": 0,
+        "new_alarms": 27,
+        "neither": 24,
+        "u_silent_corrupt": 21,
+        "u_crash": 1,
+        "u_same_output": 29
+      },
+      "index_plus_1": {
+        "total": 43,
+        "faulty": 32,
+        "benign": 11,
+        "definite_violations": 0,
+        "new_alarms": 31,
+        "neither": 12,
+        "u_silent_corrupt": 35,
+        "u_crash": 3,
+        "u_same_output": 5
+      },
+      "index_minus_1": {
+        "total": 43,
+        "faulty": 33,
+        "benign": 10,
+        "definite_violations": 0,
+        "new_alarms": 30,
+        "neither": 13,
+        "u_silent_corrupt": 35,
+        "u_crash": 3,
+        "u_same_output": 5
+      },
+      "index_plus_k": {
+        "total": 43,
+        "faulty": 34,
+        "benign": 9,
+        "definite_violations": 0,
+        "new_alarms": 32,
+        "neither": 11,
+        "u_silent_corrupt": 36,
+        "u_crash": 3,
+        "u_same_output": 4
+      },
+      "index_minus_k": {
+        "total": 43,
+        "faulty": 41,
+        "benign": 2,
+        "definite_violations": 0,
+        "new_alarms": 32,
+        "neither": 11,
+        "u_silent_corrupt": 37,
+        "u_crash": 2,
+        "u_same_output": 4
+      },
+      "wrong_array_bound": {
+        "total": 46,
+        "faulty": 43,
+        "benign": 3,
+        "definite_violations": 5,
+        "new_alarms": 38,
+        "neither": 3,
+        "u_silent_corrupt": 14,
+        "u_crash": 2,
+        "u_same_output": 30
+      },
+      "missing_loop_update": {
+        "total": 58,
+        "faulty": 0,
+        "benign": 58,
+        "definite_violations": 0,
+        "new_alarms": 0,
+        "neither": 58,
+        "u_silent_corrupt": 2,
+        "u_crash": 56,
+        "u_same_output": 0
+      },
+      "swapped_loop_vars": {
+        "total": 2,
+        "faulty": 0,
+        "benign": 2,
+        "definite_violations": 0,
+        "new_alarms": 0,
+        "neither": 2,
+        "u_silent_corrupt": 1,
+        "u_crash": 0,
+        "u_same_output": 1
+      }
+    },
+    "source": "results/fault_injection_summary.json"
+  },
+  "calibration_noise": {
+    "timer_min_delta_ns": 82,
+    "timer_median_delta_ns": 86,
+    "fib_noise_mean_ms": 28.19456096,
+    "fib_noise_cv_percent": 8.909452057735658,
+    "fib_noise_cv_display": "8.91%",
+    "fib_mode_ratios": {
+      "R": {
+        "median_overhead_pct": -2.745852784617353,
+        "ci_95": [
+          -8.62898698368979,
+          2.4652863447726547
+        ]
+      },
+      "F": {
+        "median_overhead_pct": -1.759324332377099,
+        "ci_95": [
+          -8.039751271919538,
+          3.1718279332014987
+        ]
+      },
+      "S": {
+        "median_overhead_pct": -1.0046552777556617,
+        "ci_95": [
+          -9.531081122241025,
+          2.988386132697607
+        ]
+      },
+      "H": {
+        "median_overhead_pct": -3.8666130420186295,
+        "ci_95": [
+          -6.8043797940620765,
+          0.4271041852988544
+        ]
+      },
+      "FS": {
+        "median_overhead_pct": -1.5405032177517874,
+        "ci_95": [
+          -6.603055716991668,
+          5.183973900779693
+        ]
+      },
+      "FH": {
+        "median_overhead_pct": -3.7195271029660804,
+        "ci_95": [
+          -7.580613155404348,
+          0.7349274093295888
+        ]
+      }
+    },
+    "per_benchmark_u_cv_percent": {
+      "bsearch": 12.068160349556505,
+      "bubble": 9.825375018582584,
+      "fill_sum": 16.986361268438976,
+      "fir": 15.52387096200417,
+      "gather": 9.981115915646601,
+      "hash_table": 13.495796349041495,
+      "hist": 12.35352627594217,
+      "jacobi1d": 12.585961829841835,
+      "jacobi2d": 13.164723201528645,
+      "knapsack": 11.491911961993043,
+      "lcs": 12.078842509870242,
+      "lu": 12.7738552339606,
+      "matmul": 12.087089176953848,
+      "matvec_p": 9.703174555271152,
+      "msort": 11.934868386439792,
+      "param_sum": 13.562562417620272,
+      "poly_gemm": 15.487942172591126,
+      "prefix": 13.676049411844263,
+      "qsort": 16.029517289978433,
+      "rec_sum": 12.26687790833348,
+      "sieve": 15.79006334794785,
+      "stencil_p": 15.18572876571595
+    },
+    "mean_benchmark_u_cv_percent": 13.09333519586832,
+    "source": "results/calibration.json"
+  }
+}
