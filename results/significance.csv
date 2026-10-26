@@ -6,6 +6,8 @@ Combined 22,H vs U,H,U,+0.69%,-0.66%,+1.97%,"[-0.66%, +1.97%]",NO,NO,2 / 22,resu
 Combined 22,FS vs U,FS,U,+1.80%,+0.29%,+3.12%,"[+0.29%, +3.12%]",YES,YES,4 / 22,results/timing_raw_1792835669.csv
 Combined 22,FH vs U,FH,U,+1.24%,+0.14%,+2.50%,"[+0.14%, +2.50%]",YES,YES,2 / 22,results/timing_raw_1792835669.csv
 Combined 22,F vs R,F,R,+0.78%,-0.32%,+2.71%,"[-0.32%, +2.71%]",NO,NO,4 / 22,results/timing_raw_1792835669.csv
+Combined 22,H vs R,H,R,-1.86%,-2.87%,-0.18%,"[-2.87%, -0.18%]",YES,YES,3 / 22,results/timing_raw_1792835669.csv
+Combined 22,S vs R,S,R,-1.44%,-3.18%,-0.08%,"[-3.18%, -0.08%]",YES,YES,3 / 22,results/timing_raw_1792835669.csv
 Combined 22,H vs S,H,S,+0.31%,-0.90%,+1.54%,"[-0.90%, +1.54%]",NO,NO,3 / 22,results/timing_raw_1792835669.csv
 Combined 22,FS vs F,FS,F,-1.68%,-3.27%,+0.14%,"[-3.27%, +0.14%]",NO,NO,4 / 22,results/timing_raw_1792835669.csv
 Combined 22,FH vs H,FH,H,+0.22%,-1.24%,+1.28%,"[-1.24%, +1.28%]",NO,NO,2 / 22,results/timing_raw_1792835669.csv
@@ -17,6 +19,8 @@ Original 12,H vs U,H,U,+0.58%,-1.22%,+2.58%,"[-1.22%, +2.58%]",NO,NO,2 / 12,resu
 Original 12,FS vs U,FS,U,+2.41%,+0.50%,+4.16%,"[+0.50%, +4.16%]",YES,YES,3 / 12,results/timing_raw_1792835669.csv
 Original 12,FH vs U,FH,U,+1.81%,-0.05%,+2.98%,"[-0.05%, +2.98%]",NO,NO,1 / 12,results/timing_raw_1792835669.csv
 Original 12,F vs R,F,R,+1.02%,-0.89%,+4.20%,"[-0.89%, +4.20%]",NO,NO,2 / 12,results/timing_raw_1792835669.csv
+Original 12,H vs R,H,R,-1.84%,-3.50%,+0.61%,"[-3.50%, +0.61%]",NO,NO,2 / 12,results/timing_raw_1792835669.csv
+Original 12,S vs R,S,R,-0.87%,-3.09%,+1.24%,"[-3.09%, +1.24%]",NO,NO,1 / 12,results/timing_raw_1792835669.csv
 Original 12,H vs S,H,S,+0.34%,-1.88%,+1.93%,"[-1.88%, +1.93%]",NO,NO,0 / 12,results/timing_raw_1792835669.csv
 Original 12,FS vs F,FS,F,-1.17%,-3.33%,+0.62%,"[-3.33%, +0.62%]",NO,NO,1 / 12,results/timing_raw_1792835669.csv
 Original 12,FH vs H,FH,H,+0.88%,-1.72%,+2.59%,"[-1.72%, +2.59%]",NO,NO,2 / 12,results/timing_raw_1792835669.csv

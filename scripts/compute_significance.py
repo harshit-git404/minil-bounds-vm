@@ -150,6 +150,8 @@ def main():
         # Pairwise Mode comparisons
         pairwise = [
             ("F", "R"),
+            ("H", "R"),
+            ("S", "R"),
             ("H", "S"),
             ("FS", "F"),
             ("FH", "H"),

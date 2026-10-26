@@ -27,6 +27,17 @@ def banner(num, name):
     return f"{bar}\n{title}\n{bar}"
 
 def save_section(num, name, content):
+    import textwrap
+    home_dir = str(Path.home())
+    content = content.replace(home_dir, "~").replace("/home/harshit", "~")
+    wrapped_lines = []
+    for l in content.splitlines():
+        if len(l) > 98:
+            parts = textwrap.wrap(l, width=98, break_long_words=True, subsequent_indent="  ")
+            wrapped_lines.extend(parts)
+        else:
+            wrapped_lines.append(l)
+    content = "\n".join(wrapped_lines)
     filename = DEMO_DIR / f"{num}_{name}.txt"
     full_output = f"{banner(num, name)}\n{content}\n"
     with open(filename, "w") as f:
@@ -214,19 +225,38 @@ def section_12():
     lines.append(f"{'Differential Divergences (R, F, S, H, FS, FH)':<45} : 0 (100% behavioral match)")
     save_section("12", "fault_injection_summary", "\n".join(lines))
 
+SECTIONS = {
+    "01": ("env", section_01),
+    "02": ("make_test", section_02),
+    "03": ("sample_program", section_03),
+    "04": ("disassembly", section_04),
+    "05": ("run_modes", section_05),
+    "06": ("out_of_bounds", section_06),
+    "07": ("interval_analysis_report", section_07),
+    "08": ("hoisting_guard_fallback", section_08),
+    "09": ("mutant_example", section_09),
+    "10": ("timing_summary", section_10),
+    "11": ("decomposition_summary", section_11),
+    "12": ("fault_injection_summary", section_12),
+}
+
 def main():
-    section_01()
-    section_02()
-    section_03()
-    section_04()
-    section_05()
-    section_06()
-    section_07()
-    section_08()
-    section_09()
-    section_10()
-    section_11()
-    section_12()
+    if len(sys.argv) > 1:
+        target = sys.argv[1].strip()
+        if target.isdigit():
+            target = f"{int(target):02d}"
+        if target in SECTIONS:
+            sec_name, func = SECTIONS[target]
+            func()
+            print(f"Executed section {target} ({sec_name}). Output saved to results/demo/{target}_{sec_name}.txt")
+            return
+        else:
+            print(f"Unknown section: {target}. Available sections: {', '.join(sorted(SECTIONS.keys()))}")
+            sys.exit(1)
+
+    for num in sorted(SECTIONS.keys()):
+        sec_name, func = SECTIONS[num]
+        func()
     print("All 12 demo sections successfully executed and saved to results/demo/!")
 
 if __name__ == "__main__":
