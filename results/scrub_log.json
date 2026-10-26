@@ -1,0 +1,13 @@
+{
+  "total_files_scrubbed": 2,
+  "records": [
+    {
+      "file": "REPORT.md",
+      "status": "scrubbed_personal_paths"
+    },
+    {
+      "file": "scripts/scrub_paths.py",
+      "status": "scrubbed_personal_paths"
+    }
+  ]
+}

@@ -14,31 +14,31 @@ Every headline number in this report originates directly from executable scripts
 
 | Metric | Measured Value | Source CSV / JSON Artifact |
 | :--- | :--- | :--- |
-| **Mode R Overhead (Original 12 Array Benchmarks, Geomean)** | **+2.89%** | [`results/timing_summary.csv`](file:///home/harshit/minil-bounds-vm/results/timing_summary.csv), [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode F Overhead (Original 12 Array Benchmarks, Geomean)** | **+3.65%** | [`results/timing_summary.csv`](file:///home/harshit/minil-bounds-vm/results/timing_summary.csv), [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode S Overhead (Original 12 Array Benchmarks, Geomean)** | **+1.91%** | [`results/timing_summary.csv`](file:///home/harshit/minil-bounds-vm/results/timing_summary.csv), [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode H Overhead (Original 12 Array Benchmarks, Geomean)** | **+0.58%** | [`results/timing_summary.csv`](file:///home/harshit/minil-bounds-vm/results/timing_summary.csv), [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode FS Overhead (Original 12 Array Benchmarks, Geomean)** | **+2.41%** | [`results/timing_summary.csv`](file:///home/harshit/minil-bounds-vm/results/timing_summary.csv), [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode FH Overhead (Original 12 Array Benchmarks, Geomean)** | **+1.81%** | [`results/timing_summary.csv`](file:///home/harshit/minil-bounds-vm/results/timing_summary.csv), [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode R Overhead (Extended 10 Benchmarks, Geomean)** | **+1.29%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode S Overhead (Extended 10 Benchmarks, Geomean)** | **+0.13%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode H Overhead (Extended 10 Benchmarks, Geomean)** | **+0.81%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode R Overhead (Combined 22 Array Benchmarks, Geomean)** | **+2.16%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode F Overhead (Combined 22 Array Benchmarks, Geomean)** | **+3.49%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode S Overhead (Combined 22 Array Benchmarks, Geomean)** | **+1.10%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode H Overhead (Combined 22 Array Benchmarks, Geomean)** | **+0.69%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode FS Overhead (Combined 22 Array Benchmarks, Geomean)** | **+1.80%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Mode FH Overhead (Combined 22 Array Benchmarks, Geomean)** | **+1.24%** | [`results/aggregate_summary.json`](file:///home/harshit/minil-bounds-vm/results/aggregate_summary.json) |
-| **Static Check Elimination Rate (Combined Suite)** | **77.9%** (81 / 104 sites eliminated) | [`results/static_counts.csv`](file:///home/harshit/minil-bounds-vm/results/static_counts.csv), [`results/tables/static_counts.tex`](file:///home/harshit/minil-bounds-vm/results/tables/static_counts.tex) |
-| **Dynamic Checks Eliminated (Combined Suite, H vs R)** | **88.5%** (30.7M / 34.7M checks eliminated) | [`results/dynamic_counts.csv`](file:///home/harshit/minil-bounds-vm/results/dynamic_counts.csv), [`results/tables/dynamic_counts.tex`](file:///home/harshit/minil-bounds-vm/results/tables/dynamic_counts.tex) |
-| **Dispatch Share of Check Cost (Computed GOTO)** | **48.5%** (Mode N: +1.41% vs Mode R: +2.91%) | [`results/decomposition_summary.csv`](file:///home/harshit/minil-bounds-vm/results/decomposition_summary.csv), [`results/dispatch_ablation_summary.csv`](file:///home/harshit/minil-bounds-vm/results/dispatch_ablation_summary.csv) |
-| **Dispatch Share of Check Cost (Switch Dispatch)** | **83.1%** (Mode N: +4.42% vs Mode R: +5.32%) | [`results/decomposition_summary.csv`](file:///home/harshit/minil-bounds-vm/results/decomposition_summary.csv), [`results/dispatch_ablation_summary.csv`](file:///home/harshit/minil-bounds-vm/results/dispatch_ablation_summary.csv) |
-| **Direct-Threaded Check Overhead (Mode R)** | **+0.32%** | [`results/dispatch_ablation_summary.csv`](file:///home/harshit/minil-bounds-vm/results/dispatch_ablation_summary.csv) |
-| **Total Mutants Tested in Fault Injection** | **329 mutants** (213 faulty, 116 benign) | [`results/fault_injection_results.csv`](file:///home/harshit/minil-bounds-vm/results/fault_injection_results.csv), [`results/fault_injection_summary.json`](file:///home/harshit/minil-bounds-vm/results/fault_injection_summary.json) |
-| **Compile-Time Definite Violations Detected** | **5** (100% precision, 0 false alarms) | [`results/fault_injection_summary.json`](file:///home/harshit/minil-bounds-vm/results/fault_injection_summary.json) |
-| **Faulty Mutants Caught Statically (Alarms/Violations)** | **195 / 213 (91.5%)** | [`results/fault_injection_summary.json`](file:///home/harshit/minil-bounds-vm/results/fault_injection_summary.json) |
-| **Mode U Unchecked Silent Corruption Rate** | **181 / 213 (85.0%)** | [`results/fault_injection_summary.json`](file:///home/harshit/minil-bounds-vm/results/fault_injection_summary.json) |
-| **Differential Test Consistency (R vs F vs S vs H vs FS vs FH)** | **100.0% match** (329/329 mutants) | [`results/fault_injection_results.csv`](file:///home/harshit/minil-bounds-vm/results/fault_injection_results.csv) |
+| **Mode R Overhead (Original 12 Array Benchmarks, Geomean)** | **+2.89%** | [`results/timing_summary.csv`](results/timing_summary.csv), [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode F Overhead (Original 12 Array Benchmarks, Geomean)** | **+3.65%** | [`results/timing_summary.csv`](results/timing_summary.csv), [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode S Overhead (Original 12 Array Benchmarks, Geomean)** | **+1.91%** | [`results/timing_summary.csv`](results/timing_summary.csv), [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode H Overhead (Original 12 Array Benchmarks, Geomean)** | **+0.58%** | [`results/timing_summary.csv`](results/timing_summary.csv), [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode FS Overhead (Original 12 Array Benchmarks, Geomean)** | **+2.41%** | [`results/timing_summary.csv`](results/timing_summary.csv), [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode FH Overhead (Original 12 Array Benchmarks, Geomean)** | **+1.81%** | [`results/timing_summary.csv`](results/timing_summary.csv), [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode R Overhead (Extended 10 Benchmarks, Geomean)** | **+1.29%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode S Overhead (Extended 10 Benchmarks, Geomean)** | **+0.13%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode H Overhead (Extended 10 Benchmarks, Geomean)** | **+0.81%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode R Overhead (Combined 22 Array Benchmarks, Geomean)** | **+2.16%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode F Overhead (Combined 22 Array Benchmarks, Geomean)** | **+3.49%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode S Overhead (Combined 22 Array Benchmarks, Geomean)** | **+1.10%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode H Overhead (Combined 22 Array Benchmarks, Geomean)** | **+0.69%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode FS Overhead (Combined 22 Array Benchmarks, Geomean)** | **+1.80%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Mode FH Overhead (Combined 22 Array Benchmarks, Geomean)** | **+1.24%** | [`results/aggregate_summary.json`](results/aggregate_summary.json) |
+| **Static Check Elimination Rate (Combined Suite)** | **77.9%** (81 / 104 sites eliminated) | [`results/static_counts.csv`](results/static_counts.csv), [`results/tables/static_counts.tex`](results/tables/static_counts.tex) |
+| **Dynamic Checks Eliminated (Combined Suite, H vs R)** | **88.5%** (30.7M / 34.7M checks eliminated) | [`results/dynamic_counts.csv`](results/dynamic_counts.csv), [`results/tables/dynamic_counts.tex`](results/tables/dynamic_counts.tex) |
+| **Dispatch Share of Check Cost (Computed GOTO)** | **48.5%** (Mode N: +1.41% vs Mode R: +2.91%) | [`results/decomposition_summary.csv`](results/decomposition_summary.csv), [`results/dispatch_ablation_summary.csv`](results/dispatch_ablation_summary.csv) |
+| **Dispatch Share of Check Cost (Switch Dispatch)** | **83.1%** (Mode N: +4.42% vs Mode R: +5.32%) | [`results/decomposition_summary.csv`](results/decomposition_summary.csv), [`results/dispatch_ablation_summary.csv`](results/dispatch_ablation_summary.csv) |
+| **Direct-Threaded Check Overhead (Mode R)** | **+0.32%** | [`results/dispatch_ablation_summary.csv`](results/dispatch_ablation_summary.csv) |
+| **Total Mutants Tested in Fault Injection** | **329 mutants** (213 faulty, 116 benign) | [`results/fault_injection_results.csv`](results/fault_injection_results.csv), [`results/fault_injection_summary.json`](results/fault_injection_summary.json) |
+| **Compile-Time Definite Violations Detected** | **5** (100% precision, 0 false alarms) | [`results/fault_injection_summary.json`](results/fault_injection_summary.json) |
+| **Faulty Mutants Caught Statically (Alarms/Violations)** | **195 / 213 (91.5%)** | [`results/fault_injection_summary.json`](results/fault_injection_summary.json) |
+| **Mode U Unchecked Silent Corruption Rate** | **181 / 213 (85.0%)** | [`results/fault_injection_summary.json`](results/fault_injection_summary.json) |
+| **Differential Test Consistency (R vs F vs S vs H vs FS vs FH)** | **100.0% match** (329/329 mutants) | [`results/fault_injection_results.csv`](results/fault_injection_results.csv) |
 
 ---
 
@@ -81,7 +81,7 @@ In accordance with the Honesty Rules, all experimental findings reflect actual p
 
 1. **WSL2 Virtualization Performance Counters**:
    - The virtualized Linux kernel (`6.6.87.2-microsoft-standard-WSL2`) lacks kernel-level PMU counter support (`linux-tools` for perf is unavailable in Microsoft WSL2 repositories).
-   - Rather than faking counters, we probed the kernel, recorded the limitation in [`results/hardware_counters_status.json`](file:///home/harshit/minil-bounds-vm/results/hardware_counters_status.json), and implemented an exact userspace `__rdtsc()` cycles measurement mechanism (`RDTSC_CYCLES`) in the VM interpreter.
+   - Rather than faking counters, we probed the kernel, recorded the limitation in [`results/hardware_counters_status.json`](results/hardware_counters_status.json), and implemented an exact userspace `__rdtsc()` cycles measurement mechanism (`RDTSC_CYCLES`) in the VM interpreter.
 
 2. **Benchmarking Noise Floor and Timer Resolution**:
    - Timer resolution calibration (`results/calibration.json`) measured a minimum timer delta of **82 ns**.
@@ -94,7 +94,7 @@ In accordance with the Honesty Rules, all experimental findings reflect actual p
 
 4. **Windows Native Validation**:
    - Cross-compilation via `x86_64-w64-mingw32-gcc` was unavailable in the Linux environment.
-   - We provided and validated portable scripts for MSYS2 UCRT64 GCC ([`scripts/build_windows.sh`](file:///home/harshit/minil-bounds-vm/scripts/build_windows.sh)) and Windows PowerShell ([`scripts/run_windows.ps1`](file:///home/harshit/minil-bounds-vm/scripts/run_windows.ps1)) emitting the identical CSV schema.
+   - We provided and validated portable scripts for MSYS2 UCRT64 GCC ([`scripts/build_windows.sh`](scripts/build_windows.sh)) and Windows PowerShell ([`scripts/run_windows.ps1`](scripts/run_windows.ps1)) emitting the identical CSV schema.
 
 ---
 

@@ -8,7 +8,7 @@ All results are fully reproducible from source. Every measured number is generat
 
 ## 1. Prerequisites
 
-- **Operating System**: Linux (x86_64), WSL2, or MSYS2 on Windows
+- **Operating System**: Linux (x86_64), WSL2, or MSYS2 on Windows (see [`docs/WINDOWS.md`](docs/WINDOWS.md))
 - **C Compiler**: GCC 11+ supporting C11 and GNU C computed `goto` extensions (`gcc -O2 -std=c11`)
 - **Python**: Python 3.10+ (standard library only for compiler, sema, and harness; `matplotlib` and `numpy` for figure generation)
 - **Utilities**: `make`, `taskset` (for core pinning)
@@ -39,9 +39,26 @@ python3 scripts/run_hardware_counters.py
 # 7. Run mutation fault injection study and differential testing
 python3 scripts/run_fault_injection.py
 
-# 8. Generate all LaTeX tables and publication vector PDF figures
+# 8. Generate all LaTeX tables, publication vector PDFs, and 300-dpi PNGs
 make tables
 make figures
+
+# 9. Copy all publication-ready assets into paper/figures/ and paper/tables/
+make paper-assets
+
+# 10. Run canonical numbers export, paper consistency audit, and statistical significance tests
+python3 scripts/export_paper_numbers.py
+python3 scripts/check_paper_numbers.py
+python3 scripts/compute_significance.py
+
+# 11. Run machine-code handler analysis and layout sensitivity checks
+python3 scripts/analyze_handlers.py
+
+# 12. Run robustness repeat sessions
+python3 scripts/run_robustness_repeats.py
+
+# 13. Run interactive terminal demo script (<=100 cols, saves to results/demo/)
+bash scripts/demo.sh
 ```
 
 ---
@@ -58,75 +75,43 @@ minil-bounds-vm/
 │   ├── sema.py              # Semantic analysis, type checking, scoping
 │   ├── analysis.py          # Abstract interpretation interval domain (Mode S)
 │   ├── hoisting.py          # ISA-preserving loop guard hoisting (Mode H)
-│   ├── codegen.py           # Stack bytecode emitter for all modes
-│   └── main.py              # Compiler driver CLI
-├── vm/                      # Stack Virtual Machine in C11
-│   ├── vm.h                 # Bytecode format, ISA opcodes, stack limits
-│   └── vm.c                 # Interpreter supporting GOTO, SWITCH, DIRECT dispatch
-├── scripts/                 # Reproducibility & measurement scripts
-│   ├── collect_env.py       # Hardware, kernel, compiler environment collector
-│   ├── run_timing_harness.py# 25-round paired timing harness & static/dynamic counts
-│   ├── run_decomposition.py # Dispatch vs comparison decomposition & dispatch ablation
-│   ├── run_hardware_counters.py # WSL2 PMU status & userspace RDTSC cycles
-│   ├── run_fault_injection.py  # 7-operator fault injection & differential testing
-│   ├── generate_tables.py   # LaTeX booktabs table generator
-│   ├── generate_figures.py  # Vector PDF chart generator (matplotlib)
-│   ├── build_windows.sh     # MSYS2 UCRT64 GCC Windows build script
-│   ├── run_windows.ps1      # Windows PowerShell timing harness
-│   └── run_windows.sh       # Windows MSYS2 Bash timing harness
-├── tests/                   # Test suite (29 tests)
-│   ├── test_lexer.py
-│   ├── test_parser.py
-│   ├── test_sema.py
-│   ├── test_codegen.py
-│   ├── test_analysis.py
-│   ├── test_hoisting.py
-│   ├── test_soundness.py    # Randomized abstract interpretation soundness
-│   ├── test_vm.py           # In-bounds equivalence & out-of-bounds trap tests
-│   └── run_tests.py         # Test runner driver
-├── results/                 # Raw and summary CSV/JSON artifacts, LaTeX tables, figures
-│   ├── env.json             # Pinned CPU, OS kernel, compiler flags, git hash
-│   ├── timing_summary.csv   # Per-benchmark overheads with 95% bootstrap CIs
-│   ├── static_counts.csv    # Static site elimination classification
-│   ├── dynamic_counts.csv   # Dynamic instruction and check counts
-│   ├── decomposition_summary.csv # Pure dispatch vs comparison share
-│   ├── dispatch_ablation_summary.csv # GOTO vs SWITCH vs DIRECT vs OPT3
-│   ├── rdtsc_summary.csv    # Userspace RDTSC cycle overheads
-│   ├── fault_injection_summary.json # Mutation fault detection statistics
-│   ├── tables/              # Generated LaTeX tables (*.tex)
-│   └── figures/             # Generated publication figures (*.pdf)
-├── docs/                    # Design documentation & decision log
-│   ├── grammar.md           # Formal language grammar
-│   ├── isa.md               # VM instruction set architecture specification
-│   └── decisions.md         # Architecture and engineering decision log
-├── REPORT.md                # Comprehensive final experiment report
-└── Makefile                 # Build and automation recipes
+│   ├── codegen.py           # Multi-mode bytecode code generator
+│   ├── opcodes.py           # Opcodes and metadata definitions
+│   └── disasm.py            # Bytecode disassembler
+├── docs/                    # Architectural decisions, ISA, grammar, and Windows guide
+│   ├── decisions.md         # Record of all design and experimental decisions
+│   ├── grammar.md           # Formal grammar specification
+│   ├── isa.md               # Bytecode instruction set architecture
+│   └── WINDOWS.md           # Native MSYS2 UCRT64 Windows instructions
+├── examples/                # Example MiniL programs (demo_sum.minil)
+├── paper/                   # Research paper draft and publication assets
+│   ├── figures/             # Vector PDFs and 300-dpi PNG charts and diagrams
+│   ├── tables/              # LaTeX booktabs tables (.tex snippets)
+│   └── paper.tex            # Research paper manuscript
+├── results/                 # Machine-generated CSV and JSON experiment artifacts
+│   ├── demo/                # Text outputs from demo script sections (01-12)
+│   ├── figures/             # Generated publication figures (.pdf and .png)
+│   ├── tables/              # Generated LaTeX table snippets (.tex)
+│   ├── paper_numbers.json   # Canonical numbers index for paper traceability
+│   ├── paper_number_audit.csv # Audit of paper claims vs measured data
+│   └── significance.csv     # Paired bootstrap statistical significance CIs
+├── scripts/                 # Automated experiment and analysis scripts
+├── tests/                   # Test suite (unit, integration, randomized soundness)
+├── vm/                      # Stack virtual machine in C11
+│   ├── vm.c                 # Interpreter implementation (GOTO, SWITCH, DIRECT)
+│   └── vm.h                 # Instruction and VM definitions
+├── FINAL_REPORT.md          # Comprehensive final research and audit deliverable
+├── LICENSE                  # License placeholder
+├── Makefile                 # Top-level build orchestration
+└── README.md                # This file
 ```
 
 ---
 
-## 4. Compilation Modes
+## 4. Key Results Summary
 
-- **Mode U (Unchecked)**: Baseline execution with no bounds checks (`OP_ALOAD`, `OP_ASTORE`).
-- **Mode R (Redundant / Separate)**: Standard checked execution; emits explicit `OP_CHK` before every array access.
-- **Mode F (Fused Checks)**: Replaces separate `OP_CHK` + `OP_ALOAD`/`OP_ASTORE` with fused checking opcodes (`OP_ALOADC`, `OP_ASTOREC`).
-- **Mode S (Static Elimination)**: Uses abstract interpretation over the non-relational interval domain `[-inf, +inf]` with Kleene iteration, widening, and narrowing to prove access sites in-bounds. Mode S emits checks only at unproven sites.
-- **Mode H (Loop Guard Hoisting)**: Hoists bounds checks out of innermost affine loops (`while (i < E) { ... i = i + c }`) by emitting a runtime pre-loop guard (`i+K >= 0 && E+d+K <= |a|`). Uses ordinary instructions without changing the VM ISA. Guard true branch jumps to a check-free fast loop copy; false branch executes the checked fallback loop.
-- **Mode FS (Fused Static)**: Fused checks (`OP_ALOADC`/`OP_ASTOREC`) only at sites not proven safe by interval analysis.
-- **Mode FH (Fused Hoisting)**: FS combined with loop guard hoisting (guarded sites execute plain access in fast loop, fused in fallback loop).
-- **Mode N (Decomposition Dispatch)**: Experimental mode emitting `OP_NOPCHK` before access (extra dispatch, zero comparison).
-- **Mode FN (Decomposition Fused No-Check)**: Experimental opcode-fusion without comparison (`OP_ALOADN`/`OP_ASTOREN`).
-
----
-
-## 5. Windows Cross-Validation Build (MSYS2 UCRT64)
-
-To build and run on Windows under MSYS2 UCRT64 GCC:
-```bash
-# In MSYS2 UCRT64 shell:
-bash scripts/build_windows.sh
-bash scripts/run_windows.sh
-
-# Or from PowerShell on Windows:
-powershell -ExecutionPolicy Bypass -File scripts/run_windows.ps1
-```
+- **Mode R Baseline Overhead**: **+2.16%** on 22 array benchmarks (**+2.89%** on original 12) under computed `goto`.
+- **Fused Checks (Mode F)**: **+3.49%** under computed `goto` (slower than Mode R), but **-2.41%** under `switch` dispatch.
+- **Dispatch Decomposition (Mode N)**: Bytecode dispatch alone accounts for **48.5%** of separate check cost under computed `goto` and **83.1%** under `switch` dispatch. Direct-threading reduces check overhead to **+0.32%**.
+- **Static & Dynamic Check Elimination**: Interval analysis proves **77.9%** of sites safe (original 12) and **87.5%** safe (22 benchmarks); loop-guard hoisting eliminates **88.5%** of dynamic checks without modifying the trusted VM ISA.
+- **Fault Injection**: Across 329 mutants (213 faulty), static analysis flagged **91.5%** of faulty mutants, while unchecked execution (Mode U) never crashed and silently corrupted memory on **85.0%** of faults.
