@@ -1,0 +1,4 @@
+layout_variant,cflags,f_vs_r_geomean_overhead_pct,f_slower_than_r,sign_flipped
+baseline_O2,-O2,+0.08%,YES,NO
+no_reorder_blocks,-O2 -fno-reorder-blocks,+1.37%,YES,NO
+align_functions_64,-O2 -falign-functions=64,+0.79%,YES,NO
