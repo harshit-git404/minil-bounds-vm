@@ -43,6 +43,6 @@ test_instrumented_counts (test_vm.TestVM.test_instrumented_counts) ... ok
 test_out_of_bounds_behavior (test_vm.TestVM.test_out_of_bounds_behavior) ... ok
 
 ----------------------------------------------------------------------
-Ran 29 tests in 13.675s
+Ran 29 tests in 13.771s
 
 OK
